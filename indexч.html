@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Партнёрский канал – Шаблоны + Пасхалки</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-start: #f0f4ff;
+      --bg-end: #f9faff;
+      --card-bg: #ffffff;
+      --section-bg: #ffffff;
+      --text: #1a1a2e;
+      --text-secondary: #5a5a7a;
+      --primary-violet: #6c2bd9;
+      --primary-blue: #1a73e8;
+      --primary-green: #04b18e;
+      --primary-red: #e31e24;
+      --soft-blue: #e8f1ff;
+      --soft-blue-hover: #d4e4ff;
+      --border: #e4e8f0;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.08);
+      --highlight-bg: #fff3cd;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not(.light-theme):not(.dark-theme) {
+        --bg-start: #1a1d2e;
+        --bg-end: #2a2d3e;
+        --card-bg: #2a2d3e;
+        --section-bg: #2a2d3e;
+        --text: #e0e0f0;
+        --text-secondary: #a0a0c0;
+        --primary-violet: #8b6ce0;
+        --primary-blue: #4a90e2;
+        --primary-green: #2bbf8e;
+        --primary-red: #e05050;
+        --soft-blue: #2e334a;
+        --soft-blue-hover: #3a405a;
+        --border: #3e4250;
+        --highlight-bg: #3a3a1a;
+      }
+    }
+
+    body.dark-theme {
+      --bg-start: #1a1d2e;
+      --bg-end: #2a2d3e;
+      --card-bg: #2a2d3e;
+      --section-bg: #2a2d3e;
+      --text: #e0e0f0;
+      --text-secondary: #a0a0c0;
+      --primary-violet: #8b6ce0;
+      --primary-blue: #4a90e2;
+      --primary-green: #2bbf8e;
+      --primary-red: #e05050;
+      --soft-blue: #2e334a;
+      --soft-blue-hover: #3a405a;
+      --border: #3e4250;
+      --highlight-bg: #3a3a1a;
+    }
+    body.dark-theme .settings-btn-opt,
+    body.dark-theme .topic-btn,
+    body.dark-theme .variant-btn,
+    body.dark-theme .copy-btn,
+    body.dark-theme .info-panel-btn,
+    body.dark-theme .settings-btn,
+    body.dark-theme .modal-close,
+    body.dark-theme .modal-header h2,
+    body.dark-theme .inner-section-title,
+    body.dark-theme .benefit-card,
+    body.dark-theme .step-item,
+    body.dark-theme .variant-text,
+    body.dark-theme .toast,
+    body.dark-theme .ai-btn,
+    body.dark-theme .dropdown-btn,
+    body.dark-theme .dropdown-item {
+      color: var(--text) !important;
+    }
+    body.dark-theme .variant-card {
+      background: var(--card-bg);
+      border-color: var(--border);
+    }
+
+    body.bg-green {
+      --bg-start: #e8f5e9;
+      --bg-end: #f1f8e9;
+      --section-bg: #ffffffdd;
+      --card-bg: #ffffff;
+      --soft-blue: #dcedc8;
+      --soft-blue-hover: #c5e1a5;
+      --border: #c8e6c9;
+      --text: #1a3a1a;
+      --text-secondary: #2d5a2d;
+      --primary-violet: #2e7d32;
+      --primary-blue: #388e3c;
+      --primary-green: #4caf50;
+      --primary-red: #f44336;
+    }
+    body.dark-theme.bg-green {
+      --bg-start: #1e2a1e;
+      --bg-end: #2a3a2a;
+      --section-bg: #2a3a2a;
+      --card-bg: #2a3a2a;
+      --soft-blue: #2e4a2e;
+      --soft-blue-hover: #3a5a3a;
+      --text: #c8e6c9;
+      --text-secondary: #a5d6a7;
+      --primary-violet: #66bb6a;
+      --primary-blue: #81c784;
+      --primary-green: #a5d6a7;
+      --primary-red: #e57373;
+    }
+    body.bg-warm {
+      --bg-start: #fff5e6;
+      --bg-end: #ffe6e6;
+      --section-bg: #ffffffdd;
+      --card-bg: #ffffff;
+      --soft-blue: #ffecb3;
+      --soft-blue-hover: #ffe0b2;
+      --border: #ffccbc;
+      --text: #4a2a1a;
+      --text-secondary: #7a4a2a;
+      --primary-violet: #d84315;
+      --primary-blue: #ff7043;
+      --primary-green: #ffb74d;
+      --primary-red: #ef5350;
+    }
+    body.dark-theme.bg-warm {
+      --bg-start: #2a201a;
+      --bg-end: #3a2a2a;
+      --section-bg: #3a2a2a;
+      --card-bg: #3a2a2a;
+      --soft-blue: #4a3a2a;
+      --soft-blue-hover: #5a4a3a;
+      --text: #ffccbc;
+      --text-secondary: #ffab91;
+      --primary-violet: #ff7043;
+      --primary-blue: #ff8a65;
+      --primary-green: #ffb74d;
+      --primary-red: #ef5350;
+    }
+    body.bg-purple {
+      --bg-start: #f3e5f5;
+      --bg-end: #fce4ec;
+      --section-bg: #ffffffdd;
+      --card-bg: #ffffff;
+      --soft-blue: #e1bee7;
+      --soft-blue-hover: #ce93d8;
+      --border: #ce93d8;
+      --text: #4a148c;
+      --text-secondary: #6a1b9a;
+      --primary-violet: #9c27b0;
+      --primary-blue: #ab47bc;
+      --primary-green: #ce93d8;
+      --primary-red: #e91e63;
+    }
+    body.dark-theme.bg-purple {
+      --bg-start: #1a0f2a;
+      --bg-end: #2a1a3a;
+      --section-bg: #2a1a3a;
+      --card-bg: #2a1a3a;
+      --soft-blue: #3a2a4a;
+      --soft-blue-hover: #4a3a5a;
+      --text: #e1bee7;
+      --text-secondary: #ce93d8;
+      --primary-violet: #ce93d8;
+      --primary-blue: #ba68c8;
+      --primary-green: #ab47bc;
+      --primary-red: #f06292;
+    }
+
+    body.card-flat .topic-btn, .variant-card, body.card-flat .dropdown-btn { border-radius: 8px; box-shadow: none; border: 1px solid var(--border); }
+    body.card-accent .topic-btn, body.card-accent .dropdown-btn { border-left: 4px solid var(--primary-blue); padding-left: 18px; }
+    body.card-accent .variant-card { border-left: 4px solid var(--primary-blue); padding-left: 18px; border-radius: 12px; }
+
+    body.neon-theme {
+      --bg-start: #0a0a2a;
+      --bg-end: #1a1a3a;
+      --card-bg: #0f0f2a;
+      --section-bg: #0f0f2a;
+      --text: #d0d0ff;
+      --text-secondary: #a0a0dd;
+      --primary-violet: #ff44ff;
+      --primary-blue: #44aaff;
+      --primary-green: #44ffaa;
+      --primary-red: #ff5555;
+      --soft-blue: #2a2a5a;
+      --soft-blue-hover: #3a3a7a;
+      --border: #4a4a8a;
+      box-shadow: 0 0 5px rgba(68,170,255,0.5);
+    }
+    body.neon-theme .settings-btn-opt, body.neon-theme .topic-btn, body.neon-theme .variant-btn,
+    body.neon-theme .copy-btn, body.neon-theme .info-panel-btn, body.neon-theme .settings-btn,
+    body.neon-theme .modal-close, body.neon-theme .modal-header h2,
+    body.neon-theme .inner-section-title, body.neon-theme .benefit-card,
+    body.neon-theme .step-item, body.neon-theme .variant-text, body.neon-theme .toast,
+    body.neon-theme .ai-btn, body.neon-theme .dropdown-btn, body.neon-theme .dropdown-item {
+      color: var(--text) !important;
+    }
+    body.neon-theme .topic-btn.active, body.neon-theme .dropdown-btn.active { box-shadow: 0 0 15px var(--primary-blue); }
+    body.neon-theme .copy-btn, body.neon-theme .settings-btn, body.neon-theme .info-panel-btn,
+    body.neon-theme .ai-btn, body.neon-theme .dropdown-btn { box-shadow: 0 0 3px currentColor; }
+    body.neon-theme .variant-card { box-shadow: 0 0 8px rgba(68,170,255,0.3); }
+
+    body {
+      background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+      font-family: 'Segoe UI', 'Inter', sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px;
+      gap: 32px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--primary-violet) 0%, var(--primary-blue) 30%, var(--primary-green) 60%, var(--primary-red) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .main-header {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .main-header h1 { font-size: 2.6rem; font-weight: 700; }
+    .header-right { display: flex; align-items: center; gap: 12px; }
+    .last-updated { font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px; }
+    .avito-logo-svg { height: 38px; width: auto; cursor: pointer; transition: 0.2s; }
+    .avito-logo-svg:hover { filter: drop-shadow(0 0 3px var(--primary-blue)); transform: scale(1.02); }
+    .settings-btn, .info-panel-btn, .ai-btn, .dropdown-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.2s;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .ai-btn { padding: 8px 12px; font-size: 1.2rem; }
+    .settings-btn:hover, .info-panel-btn:hover, .ai-btn:hover, .dropdown-btn:hover {
+      background: var(--soft-blue);
+      transform: translateY(-1px);
+    }
+
+    .info-container { width: 100%; max-width: 1100px; margin-top: -16px; margin-bottom: 0; }
+    .info-row { display: flex; justify-content: flex-end; margin-bottom: 8px; }
+    .info-accordion {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      max-height: 0;
+      transition: max-height 0.5s ease, padding 0.3s ease;
+      padding: 0 24px;
+    }
+    .info-accordion.open { max-height: 800px; padding: 20px 24px; }
+    .inner-section { margin-bottom: 24px; }
+    .inner-section:last-child { margin-bottom: 0; }
+    .inner-section-title { font-weight: 700; font-size: 1.2rem; margin-bottom: 16px; color: var(--primary-blue); display: flex; align-items: center; gap: 8px; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 16px; margin-bottom: 8px; }
+    .benefit-card { background: var(--soft-blue); border-radius: 16px; padding: 16px 12px; text-align: center; transition: 0.2s; }
+    .benefit-card:hover { transform: translateY(-3px); background: var(--soft-blue-hover); }
+    .benefit-icon { font-size: 2rem; margin-bottom: 8px; }
+    .benefit-title { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+    .benefit-desc { font-size: 0.85rem; color: var(--text-secondary); }
+    .steps-row { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; }
+    .step-item { flex: 1; background: var(--soft-blue); border-radius: 16px; padding: 16px 12px; text-align: center; min-width: 100px; }
+    .step-num { width: 36px; height: 36px; background: var(--primary-violet); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; margin: 0 auto 8px auto; }
+    .step-text { font-size: 0.85rem; font-weight: 500; }
+
+    .dashboard {
+      width: 100%;
+      max-width: 1100px;
+      background: var(--card-bg);
+      border-radius: 20px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+    }
+    .section-title { font-size: 1.8rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .section-title .title-icon { font-size: 1.8rem; }
+    .section-title .title-text {
+      background: linear-gradient(90deg, var(--primary-violet) 0%, var(--primary-blue) 30%, var(--primary-green) 60%, var(--primary-red) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .filters-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 8px; }
+    .filters-row .filter-label { font-weight: 600; color: var(--text-secondary); font-size: 0.9rem; }
+
+    .custom-dropdown { position: relative; display: inline-block; }
+    .dropdown-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+      min-width: 160px;
+      justify-content: space-between;
+    }
+    .dropdown-btn:hover { background: var(--soft-blue); }
+    .dropdown-btn .arrow { font-size: 0.8rem; transition: transform 0.2s; }
+    .dropdown-btn.open .arrow { transform: rotate(180deg); }
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      z-index: 100;
+      display: none;
+      max-height: 250px;
+      overflow-y: auto;
+    }
+    .dropdown-menu.open { display: block; }
+    .dropdown-item { padding: 10px 18px; cursor: pointer; transition: 0.2s; font-weight: 500; color: var(--text); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+    .dropdown-item:last-child { border-bottom: none; }
+    .dropdown-item:hover { background: var(--soft-blue); }
+    .dropdown-item.active { background: var(--primary-blue); color: white; }
+    .dropdown-item.active:hover { background: var(--primary-blue); color: white; }
+
+    .topics-header { font-size: 1.2rem; font-weight: 700; margin-top: 8px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; color: var(--primary-blue); }
+    .grid-container { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; max-height: 260px; overflow-y: auto; padding-right: 8px; }
+    @media (max-width:800px){ .grid-container { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width:500px){ .grid-container { grid-template-columns: 1fr; } }
+    .topic-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 10px 12px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text);
+      transition: 0.2s;
+      text-align: center;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.3;
+    }
+    .topic-btn:hover { background: var(--soft-blue); transform: translateY(-1px); }
+    .topic-btn.active { background: var(--primary-blue); color: white; border-color: var(--primary-blue); box-shadow: 0 2px 8px rgba(26,115,232,0.3); }
+
+    .search-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      max-width: 450px;
+      flex: 1;
+      cursor: pointer;
+    }
+    .search-box input { border: none; background: transparent; width: 100%; outline: none; color: var(--text); cursor: text; }
+
+    .variant-selector { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+    .variant-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text);
+      transition: 0.2s;
+    }
+    .variant-btn:hover { background: var(--soft-blue); transform: translateY(-1px); }
+    .variant-btn.active { background: var(--primary-blue); color: white; border-color: var(--primary-blue); }
+    .variant-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 18px; padding: 20px 22px; transition: 0.2s; }
+    .variant-text { line-height: 1.7; white-space: pre-wrap; font-size: 0.95rem; color: var(--text); }
+    .variant-text .search-highlight { background: var(--highlight-bg); padding: 0 2px; border-radius: 2px; }
+    .copy-wrapper { margin-top: 16px; text-align: right; display: flex; justify-content: flex-end; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .copy-btn, .edit-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 24px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--primary-blue);
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .copy-btn:hover { background: var(--primary-blue); color: white; }
+    .copy-btn.copied { background: var(--primary-green); color: white; }
+    .edit-btn { color: var(--primary-violet); }
+    .edit-btn:hover { background: var(--primary-violet); color: white; }
+    .empty-state { text-align: center; padding: 40px; color: var(--text-secondary); }
+    .meta-info { font-size: 0.78rem; color: var(--text-secondary); margin-top: 10px; display: flex; align-items: center; gap: 6px; }
+
+    .add-template-btn {
+      background: var(--primary-green);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.2s;
+    }
+    .add-template-btn:hover { filter: brightness(1.05); transform: translateY(-1px); }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.92rem; }
+    .form-group select, .form-group input[type="text"], .form-group textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--card-bg);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.92rem;
+    }
+    .form-group textarea { resize: vertical; }
+    .form-submit-btn {
+      background: var(--primary-green);
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .form-submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .form-error { color: var(--primary-red); font-size: 0.8rem; margin-top: 4px; display: none; }
+    .form-group.error select, .form-group.error input, .form-group.error textarea { border-color: var(--primary-red); }
+    .form-group.error .form-error { display: block; }
+
+    .feedback-modal .modal-content { max-width: 500px; }
+    .feedback-form-group { margin-bottom: 20px; position: relative; }
+    .feedback-form-group label { display: block; margin-bottom: 6px; font-weight: 600; }
+    .required-star { color: var(--primary-red); cursor: help; margin-left: 4px; }
+    .feedback-form-group input, .feedback-form-group textarea { width: 100%; padding: 10px; border: 1px solid var(--border); border-radius: 12px; background: var(--card-bg); color: var(--text); font-family: inherit; transition: border 0.2s; }
+    .feedback-form-group.error input, .feedback-form-group.error textarea { border-color: var(--primary-red); background-color: rgba(227,30,36,0.05); }
+    .error-message { color: var(--primary-red); font-size: 0.75rem; margin-top: 4px; display: none; }
+    .feedback-submit-btn { background: var(--primary-green); color: white; border: none; padding: 10px 20px; border-radius: 40px; cursor: pointer; font-weight: bold; }
+
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 24px;
+    }
+    .modal-content {
+      background: var(--card-bg);
+      border-radius: 28px;
+      max-width: 850px;
+      width: 100%;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+    }
+    .modal-header { padding: 20px 28px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .modal-header h2 { font-weight: 700; color: var(--primary-blue); }
+    .modal-close { background: #f0f0f5; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; transition: 0.2s; color: var(--text-secondary); }
+    .modal-close:hover { background: var(--primary-red); color: white; }
+    .modal-body { padding: 24px 28px; overflow-y: auto; }
+
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary-green);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 30px;
+      z-index: 2000;
+      animation: fadeInUp 0.3s;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+
+    .ttt-board { display: grid; grid-template-columns: repeat(3,80px); grid-template-rows: repeat(3,80px); gap: 8px; justify-content: center; margin: 20px 0; }
+    .ttt-cell { background: var(--card-bg); border: 2px solid var(--border); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 3rem; font-weight: bold; cursor: pointer; transition: 0.1s; color: var(--primary-blue); }
+    .ttt-cell:hover { background: var(--soft-blue); transform: scale(1.02); }
+    .ttt-status { text-align: center; font-size: 1.1rem; margin: 10px 0; font-weight: 600; color: var(--text); }
+    .ttt-reset { background: var(--primary-blue); color: white; border: none; padding: 8px 20px; border-radius: 30px; cursor: pointer; font-weight: bold; margin-top: 10px; }
+
+    .topics-list-container { margin-top: 12px; }
+    .topan-switch {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: flex-end;
+      padding: 6px 12px;
+      background: var(--soft-blue);
+      border-radius: 30px;
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+      width: fit-content;
+      margin-left: auto;
+      font-size: 0.8rem;
+    }
+    .topan-switch .toggle-label { font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.3px; color: var(--text); }
+    .topan-switch .toggle-status { font-weight: 700; font-size: 0.75rem; width: 30px; text-align: center; }
+    .topan-switch .toggle-track { width: 44px; height: 20px; border-radius: 20px; background: #cdd1da; position: relative; cursor: pointer; transition: background 0.25s; display: flex; align-items: center; }
+    .topan-switch .toggle-knob { position: absolute; width: 16px; height: 16px; background: white; border-radius: 50%; top: 2px; left: 2px; transition: left 0.25s; box-shadow: 0 1px 4px rgba(0,0,0,0.15); }
+    .topan-switch input:checked + .toggle-track { background: var(--primary-green); }
+    .topan-switch input:checked + .toggle-track .toggle-knob { left: 26px; }
+    .topan-switch .toggle-track.disabled { opacity: 0.5; cursor: not-allowed; }
+    .topan-switch .toggle-track.disabled .toggle-knob { background: #ccc; }
+
+    .fade-container { opacity: 0; transform: translateY(8px); transition: opacity 0.25s ease, transform 0.2s ease; }
+    .fade-container.active { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <!-- ===== ВЕРХНИЙ БЛОК ===== -->
+  <div class="main-header">
+    <div>
+      <h1><span class="gradient-text">Партнёрский канал</span></h1>
+      <div class="last-updated" id="lastUpdated"></div>
+    </div>
+    <div class="header-right">
+      <button class="settings-btn" id="settingsButton">⚙️ Настройки</button>
+      <a href="https://llm.k.avito.ru/?chatAction=new&chatType=safe" target="_blank" rel="noopener noreferrer" class="ai-btn" title="Привет, я Виталик, тоже сюда попал.😀">🤖</a>
+      <svg class="avito-logo-svg" viewBox="0 0 120 48" fill="none">
+        <defs>
+          <linearGradient id="avitoGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#6c2bd9" />
+            <stop offset="33%" stop-color="#1a73e8" />
+            <stop offset="66%" stop-color="#04b18e" />
+            <stop offset="100%" stop-color="#e31e24" />
+          </linearGradient>
+        </defs>
+        <rect width="120" height="48" rx="8" fill="url(#avitoGrad)" />
+        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="22" fill="white">Avito</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ===== ИНСТРУКЦИЯ (4 шага) ===== -->
+  <div class="info-container">
+    <div class="info-row">
+      <button class="info-panel-btn" id="infoPanelBtn">✨ Инструкция</button>
+    </div>
+    <div class="info-accordion" id="infoAccordion">
+      <div class="inner-section">
+        <div class="inner-section-title">🎯 Для чего</div>
+        <div class="benefits-grid">
+          <div class="benefit-card"><div class="benefit-icon">💬✨</div><div class="benefit-title">Вариации</div><div class="benefit-desc">2-3 варианта ответа</div></div>
+          <div class="benefit-card"><div class="benefit-icon">📏✅</div><div class="benefit-title">Единый стандарт</div><div class="benefit-desc">Все отвечают одинаково</div></div>
+          <div class="benefit-card"><div class="benefit-icon">🌟📈</div><div class="benefit-title">Всё включено</div><div class="benefit-desc">Ценности компании в ответах</div></div>
+          <div class="benefit-card"><div class="benefit-icon">🗺️📍</div><div class="benefit-title">5 в 1</div><div class="benefit-desc">Все регионы в одном окне</div></div>
+          <div class="benefit-card"><div class="benefit-icon">⚡⏱️</div><div class="benefit-title">Скорость</div><div class="benefit-desc">Готовый ответ за секунду</div></div>
+        </div>
+      </div>
+      <div class="inner-section">
+        <div class="inner-section-title">📘 Как пользоваться</div>
+        <div class="steps-row">
+          <div class="step-item"><div class="step-num">1</div><div class="step-text">Выбери регион</div></div>
+          <div class="step-item"><div class="step-num">2</div><div class="step-text">Выбери этап</div></div>
+          <div class="step-item"><div class="step-num">3</div><div class="step-text">Выбери тему</div></div>
+          <div class="step-item"><div class="step-num">4</div><div class="step-text">Выбери вариант и скопируй</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ОСНОВНАЯ ПАНЕЛЬ ===== -->
+  <div class="dashboard">
+    <div class="section-title" style="justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <span style="display:flex; align-items:center; gap:8px;"><span class="title-icon">📂</span><span class="title-text">Рабочие шаблоны</span></span>
+      <button class="add-template-btn" id="addTemplateBtn">➕ Добавить шаблон</button>
+    </div>
+
+    <div class="filters-row">
+      <span class="filter-label">📍 Регион:</span>
+      <button type="button" id="addRegionBtn" style="background:none; border:1px dashed var(--border); padding:6px 12px; border-radius:30px; font-size:0.8rem; cursor:pointer; color:var(--text-secondary);">+ Добавить регион</button>
+      <div class="custom-dropdown" id="regionDropdown">
+        <button class="dropdown-btn" id="dropdownBtn">
+          <span id="selectedRegion">Выберите регион</span>
+          <span class="arrow">▼</span>
+        </button>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <div class="dropdown-item active" data-value="">— Выберите регион —</div>
+          <div class="dropdown-item" data-value="kzn">🏙️ Казань</div>
+          <div class="dropdown-item" data-value="ufa">🏙️ Уфа</div>
+          <div class="dropdown-item" data-value="ekb">🏙️ Екатеринбург</div>
+          <div class="dropdown-item" data-value="vrn">🏙️ Воронеж</div>
+          <div class="dropdown-item" data-value="ros">🏙️ Ростов-на-Дону</div>
+          <div class="dropdown-item" data-value="msk">🏙️ Москва</div>
+        </div>
+      </div>
+      <div class="search-box"><span>🔍</span><input type="text" id="searchTopicsInput" placeholder="Поиск по названию или тексту шаблона..." /></div>
+    </div>
+
+    <div class="topics-header">🗂 Этапы</div>
+    <div id="stageContainer" class="grid-container"></div>
+    <div id="topicsContainer" class="topics-list-container"></div>
+    <div id="templatesContainer" class="templates-container"></div>
+    <div id="emptyLineMessage" class="empty-state" style="display:none;">Выберите этап для отображения тем</div>
+  </div>
+
+  <!-- ===== НАСТРОЙКИ ===== -->
+  <div id="settingsModal" class="modal-overlay" style="display:none;">
+    <div class="modal-content" style="max-width:550px;">
+      <div class="modal-header"><h2>⚙️ Персонализация</h2><button class="modal-close" id="settingsModalClose">✕</button></div>
+      <div class="modal-body">
+        <div class="settings-option" style="margin-bottom:20px;"><label>🌓 Тема</label>
+          <div class="settings-buttons" id="themeButtons">
+            <button data-theme="light" class="settings-btn-opt" style="background:var(--card-bg); border:1px solid var(--border); padding:8px 16px; border-radius:40px; margin-right:8px; cursor:pointer;">☀️ Светлая</button>
+            <button data-theme="dark" class="settings-btn-opt" style="background:var(--card-bg); border:1px solid var(--border); padding:8px 16px; border-radius:40px; cursor:pointer;">🌙 Тёмная</button>
+          </div>
+        </div>
+        <div class="settings-option" style="margin-bottom:20px;"><label>🎨 Цветовая гамма</label>
+          <div class="settings-buttons" id="bgColorButtons">
+            <button data-bg="default" class="settings-btn-opt" style="background:var(--card-bg); border:1px solid var(--border); padding:8px 16px; border-radius:40px; margin-right:8px; cursor:pointer;">🔵 Голубая</button>
+            <button data-bg="green" class="settings-btn-opt" style="background:var(--card-bg); border:1px solid var(--border); padding:8px 16px; border-radius:40px; margin-right:8px; cursor:pointer;">🍃 Зелёная</button>
+            <button data-bg="warm" class="settings-btn-opt" style="background:var(--card-bg); border:1px solid var(--border); padding:8px 16px; border-radius:40px; margin-right:8px; cursor:pointer;">☀️ Тёплая</button>
+            <button data-bg="purple" class="settings-btn-opt" style="background:var(--card-bg); border:1px solid var(--border); padding:8px 16px; border-radius:40px; cursor:pointer;">🟣 Фиолетовая</button>
+          </div>
+        </div>
+        <div class="settings-option" style="margin-bottom:20px;"><label>📦 Стиль карточек</label>
+          <div class="settings-buttons" id="cardStyleButtons">
+            <button data-card="default" class="settings-btn-opt" style="background:var(--card-bg); border:1px solid var(--border); padding:8px 16px; border-radius:40px; margin-right:8px; cursor:pointer;">Скруглённые</button>
+            <button data-card="flat" class="settings-btn-opt" style="background:var(--card-bg); border:1px solid var(--border); padding:8px 16px; border-radius:40px; margin-right:8px; cursor:pointer;">Плоские</button>
+            <button data-card="accent" class="settings-btn-opt" style="background:var(--card-bg); border:1px solid var(--border); padding:8px 16px; border-radius:40px; cursor:pointer;">Акцентная полоса</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ДОБАВИТЬ ШАБЛОН ===== -->
+  <div id="addTemplateModal" class="modal-overlay" style="display:none;">
+    <div class="modal-content" style="max-width:600px;">
+      <div class="modal-header"><h2>➕ Добавить шаблон</h2><button class="modal-close" id="addTemplateModalClose">✕</button></div>
+      <div class="modal-body">
+        <form id="addTemplateForm">
+          <div class="form-group" id="atStageGroup">
+            <label>Этап <span class="required-star">*</span></label>
+            <select id="atStage">
+              <option value="">— Выберите этап —</option>
+              <option value="Фиксация">Фиксация</option>
+              <option value="Бронирование">Бронирование</option>
+              <option value="Сделка">Сделка</option>
+            </select>
+            <div class="form-error">Выберите этап</div>
+          </div>
+          <div class="form-group" id="atRegionGroup">
+            <label>Регион <span class="required-star">*</span></label>
+            <select id="atRegion">
+              <option value="">— Выберите регион —</option>
+              <option value="ekb">Екатеринбург</option>
+              <option value="msk">Москва</option>
+              <option value="ufa">Уфа</option>
+              <option value="kzn">Казань</option>
+              <option value="ros">Ростов-на-Дону</option>
+              <option value="vrn">Воронеж</option>
+              <option value="all">Все регионы</option>
+            </select>
+            <div class="form-error">Выберите регион</div>
+          </div>
+          <div class="form-group" id="atAuthorGroup">
+            <label>Ваше ФИО <span class="required-star">*</span></label>
+            <input type="text" id="atAuthor" placeholder="Иванов Иван Иванович" />
+            <div class="form-error">Заполните ФИО</div>
+          </div>
+          <div class="form-group" id="atTopicGroup">
+            <label>Тема шаблона <span class="required-star">*</span></label>
+            <input type="text" id="atTopic" placeholder="Например: Запрос паспортных данных" />
+            <div class="form-error">Заполните тему</div>
+          </div>
+          <div class="form-group" id="atTextGroup">
+            <label>Текст шаблона <span class="required-star">*</span></label>
+            <textarea id="atText" rows="6" placeholder="Текст сообщения клиенту/агенту..."></textarea>
+            <div class="form-error">Заполните текст шаблона</div>
+          </div>
+          <button type="submit" class="form-submit-btn" id="atSubmitBtn">Добавить</button>
+        </form>
+        <div id="addTemplateResult"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== РЕДАКТИРОВАТЬ ШАБЛОН ===== -->
+  <div id="editTemplateModal" class="modal-overlay" style="display:none;">
+    <div class="modal-content" style="max-width:600px;">
+      <div class="modal-header"><h2>✏️ Редактировать шаблон</h2><button class="modal-close" id="editTemplateModalClose">✕</button></div>
+      <div class="modal-body">
+        <form id="editTemplateForm">
+          <div class="form-group" id="etAuthorGroup">
+            <label>Ваше ФИО <span class="required-star">*</span></label>
+            <input type="text" id="etAuthor" placeholder="Иванов Иван Иванович" />
+            <div class="form-error">Заполните ФИО</div>
+          </div>
+          <div class="form-group" id="etTextGroup">
+            <label>Текст шаблона <span class="required-star">*</span></label>
+            <textarea id="etText" rows="8"></textarea>
+            <div class="form-error">Текст не может быть пустым</div>
+          </div>
+          <button type="submit" class="form-submit-btn" id="etSubmitBtn">Сохранить</button>
+        </form>
+        <div id="editTemplateResult"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== УДАЛИТЬ ТЕМУ ===== -->
+  <div id="deleteTemplateModal" class="modal-overlay" style="display:none;">
+    <div class="modal-content" style="max-width:480px;">
+      <div class="modal-header"><h2>🗑 Удалить тему</h2><button class="modal-close" id="deleteTemplateModalClose">✕</button></div>
+      <div class="modal-body">
+        <p style="margin-bottom:16px; color:var(--text-secondary);">Тема будет скрыта для всех сотрудников. Это действие можно отменить только через администратора.</p>
+        <form id="deleteTemplateForm">
+          <div class="form-group" id="dtAuthorGroup">
+            <label>Ваше ФИО <span class="required-star">*</span></label>
+            <input type="text" id="dtAuthor" placeholder="Иванов Иван Иванович" />
+            <div class="form-error">Заполните ФИО</div>
+          </div>
+          <button type="submit" class="form-submit-btn" id="dtSubmitBtn" style="background:var(--primary-red);">Удалить тему</button>
+        </form>
+        <div id="deleteTemplateResult"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ДОБАВИТЬ РЕГИОН ===== -->
+  <div id="addRegionModal" class="modal-overlay" style="display:none;">
+    <div class="modal-content" style="max-width:480px;">
+      <div class="modal-header"><h2>📍 Добавить регион</h2><button class="modal-close" id="addRegionModalClose">✕</button></div>
+      <div class="modal-body">
+        <form id="addRegionForm">
+          <div class="form-group" id="arNameGroup">
+            <label>Название региона <span class="required-star">*</span></label>
+            <input type="text" id="arName" placeholder="Например: Новосибирск" />
+            <div class="form-error">Заполните название</div>
+          </div>
+          <div class="form-group" id="arCodeGroup">
+            <label>Короткий код <span class="required-star">*</span></label>
+            <input type="text" id="arCode" placeholder="Например: nsk (латиницей, без пробелов)" />
+            <div class="form-error">Заполните код (латиницей, без пробелов)</div>
+          </div>
+          <div class="form-group" id="arAuthorGroup">
+            <label>Ваше ФИО <span class="required-star">*</span></label>
+            <input type="text" id="arAuthor" placeholder="Иванов Иван Иванович" />
+            <div class="form-error">Заполните ФИО</div>
+          </div>
+          <button type="submit" class="form-submit-btn" id="arSubmitBtn">Добавить регион</button>
+        </form>
+        <div id="addRegionResult"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ОПРОСНИК ===== -->
+  <button id="feedbackButton" style="position:fixed; bottom:24px; right:24px; background:var(--primary-violet); color:white; border:none; border-radius:50px; padding:12px 20px; cursor:pointer; z-index:1000; display:flex; align-items:center; gap:6px;">💬 Оставить отзыв</button>
+
+  <div id="feedbackModal" class="modal-overlay feedback-modal" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header"><h2>📝 Улучшим инструмент</h2><button id="closeFeedbackModal" class="modal-close">✕</button></div>
+      <div class="modal-body">
+        <form id="feedbackForm">
+          <div class="feedback-form-group">
+            <label>Ваше ФИО <span class="required-star" title="Обязательное поле">*</span></label>
+            <input type="text" id="fio" required />
+            <div class="error-message">Пожалуйста, заполните это поле</div>
+          </div>
+          <div class="feedback-form-group" id="likeGroup">
+            <label>Что удобно? <span class="required-star" title="Обязательное поле">*</span></label>
+            <textarea id="like" rows="2"></textarea>
+            <div class="error-message">Пожалуйста, заполните это поле</div>
+          </div>
+          <div class="feedback-form-group" id="dislikeGroup">
+            <label>Что неудобно? <span class="required-star" title="Обязательное поле">*</span></label>
+            <textarea id="dislike" rows="2"></textarea>
+            <div class="error-message">Пожалуйста, заполните это поле</div>
+          </div>
+          <div class="feedback-form-group" id="suggestionGroup">
+            <label>Ваше предложение <span class="required-star" title="Обязательное поле">*</span></label>
+            <textarea id="suggestion" rows="3" required></textarea>
+            <div class="error-message">Пожалуйста, заполните это поле</div>
+          </div>
+          <button type="submit" class="feedback-submit-btn">Отправить</button>
+        </form>
+        <div id="feedbackResult"></div>
+      </div>
+    </div>
+  </div>
+  <iframe id="hiddenFrame" name="hiddenFrame" style="display:none;"></iframe>
+
+  <!-- ===== СКРИПТ ===== -->
+  <script>
+    // ================================================================
+    // 1. ДАТА ПОСЛЕДНЕГО ОБНОВЛЕНИЯ
+    // ================================================================
+    const LAST_UPDATED = document.lastModified ? new Date(document.lastModified).toLocaleDateString('ru-RU') : '05.07.2026';
+    // ================================================================
+
+    // ================================================================
+    // 2. НАСТРОЙКИ ФОРМЫ ОБРАТНОЙ СВЯЗИ (замените ID на свои)
+    // ================================================================
+    const FORM_ENTRY_FIO = 'entry.1700873387';
+    const FORM_ENTRY_LIKE = 'entry.1572366055';
+    const FORM_ENTRY_DISLIKE = 'entry.1873581130';
+    const FORM_ENTRY_SUGGESTION = 'entry.425298022';
+    const FORM_ACTION_URL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSeNfrjNHwba97NTS9xbhqYJyEH1QKOREfjVRMGjTV9i7EKblg/formResponse';
+    // ================================================================
+
+    // ================================================================
+    // 2.1 ОБЩЕЕ ХРАНИЛИЩЕ ШАБЛОНОВ (Google Apps Script Web App)
+    // Замените строку ниже на URL вашего развернутого веб-приложения
+    // (см. инструкцию по настройке). Пока URL не указан, кнопки
+    // "Добавить шаблон" / "Редактировать" будут показывать предупреждение.
+    // ================================================================
+    const TEMPLATES_API_URL = 'ВСТАВЬТЕ_СЮДА_URL_ВАШЕГО_WEB_APP';
+    // ================================================================
+
+    // ========== ССЫЛКИ ДЛЯ ТЕМЫ "Акции файл" ПО РЕГИОНАМ ==========
+    const regionFileLinks = {
+      'kzn': 'https://docs.google.com/spreadsheets/d/16xT88vb4sAAlXD7lfmMobh6PfsDC9gB3WONZ9exGslM/edit?gid=0#gid=0',
+      'ekb': 'https://docs.google.com/spreadsheets/d/1JWcZVmuYSo9l1g1wRt0AhJRrEyeNprsdb1snrOrL21k/edit?gid=944436907#gid=944436907',
+      'ros': 'https://docs.google.com/spreadsheets/d/10ikUxcOX0fskwIunLxMObLETH1ekfwDqrDPKBVK8-jg/edit?gid=84083378#gid=84083378',
+      'ufa': 'https://docs.google.com/spreadsheets/d/1rjpSL_yl5TIa0bmmcvnd5EFgvIrVmKXbU9jPVTLFrD0/edit?gid=2002780521#gid=2002780521',
+      'vrn': 'https://docs.google.com/spreadsheets/d/1qHn02iaYyxe4PBr3L8fuO0NxqM3yVofMCK2vs6yiVN4/edit?gid=223348282#gid=223348282'
+    };
+    // ================================================================
+
+    // ========== ШАБЛОНЫ ==========
+    const defaultTemplates = [
+      { text: `Добрый день, (Имя агента)!\nУже отправили застройщику ваши документы, чтобы рассчитать и согласовать вознаграждение.\n\n📅По срокам: мы всегда стараемся уложиться в 3–5 рабочих дней, но зависит от застройщика.\nКак только получим подтверждение и расчет — сразу же вернемся к вам для финального согласования!\n\n🚀Сделка в копилку! Поздравляем и говорим спасибо за классную работу!`, usage: 0 },
+      { text: `Добрый день, (ИМЯ агента)!\n\nПоздравляем с успешной сделкой — отличный результат 🎉 Комиссию уже запустили в обработку, обычно укладываемся в 3–5 рабочих дней, дальше срок зависит от застройщика.\n\nПодскажите, пожалуйста:\n\nВы плательщик НДС и нужно ли указать ФИО агента в назначении платежа?\n\nКакую дату оплаты юр. услуг зафиксировать?`, usage: 0 },
+      { text: `Добрый день, (ИМЯ агента)!\n\nПоздравляем с успешной сделкой 🎉 \nДокументы в работе, запускаем выплату. \n\nПо срокам ориентируемся на 3–5 рабочих дней, дальше всё зависит от согласования у застройщика. \n\n🔸 Нужно уточнить: являетесь ли плательщиком НДС, указывать ли ФИО агента в назначении платежа и какую дату оплаты юридических услуг зафиксировать?`, usage: 0 }
+    ];
+
+    const ufaTemplates = [
+      { text: `Добрый день, (Имя агента)!\nУже отправили застройщику ваши документы, чтобы рассчитать и согласовать вознаграждение.\n\n📅По срокам: мы всегда стараемся уложиться в 5–7 рабочих дней, но зависит от застройщика.\nКак только получим подтверждение и расчет — сразу же вернемся к вам для финального согласования!\n\n🚀Сделка в копилку! Поздравляем и говорим спасибо за классную работу!`, usage: 0 },
+      { text: `Добрый день, (ИМЯ агента)!\n\nПоздравляем с успешной сделкой — отличный результат 🎉 Комиссию уже запустили в обработку, обычно укладываемся в 5–7 рабочих дней, дальше срок зависит от застройщика.\n\nПодскажите, пожалуйста:\n\nВы плательщик НДС и нужно ли указать ФИО агента в назначении платежа?\n\nКакую дату оплаты юр. услуг зафиксировать?`, usage: 0 },
+      { text: `Добрый день, (ИМЯ агента)!\n\nПоздравляем с успешной сделкой 🎉 \nДокументы в работе, запускаем выплату. \n\nПо срокам ориентируемся на 5–7 рабочих дней, дальше всё зависит от согласования у застройщика. \n\n🔸 Нужно уточнить: являетесь ли плательщиком НДС, указывать ли ФИО агента в назначении платежа и какую дату оплаты юридических услуг зафиксировать?`, usage: 0 }
+    ];
+
+    const topAnTemplates = [
+      { text: `Добрый день, (ИМЯ агента)!\n\nСпасибо за документ — всё получили и приняли в работу 👌\nПоздравляем с закрытием сделки, это ещё один сильный результат в вашу копилку кейсов!\n\nПакет передан застройщику для расчёта вознаграждения, ориентировочный срок — 2–3 рабочих дня при отсутствии дополнительных согласований ⏳\n\nКак только будет ответ и сумма к выплате, сразу сообщим. Спасибо, что выбираете наш сервис — ценим ваше доверие и вклад в совместный результат 🤝`, usage: 0 },
+      { text: `Добрый день, (ИМЯ агента)!\n\nСпасибо за документ — всё на месте, приняли без замечаний 👌\nПоздравляем с успешной сделкой: вы усиливаете свою воронку и личный бренд каждым таким закрытием.\n\nПакет уже у застройщика, расчёт вознаграждения обычно занимает 2–3 рабочих дня. Как только получим подтверждение — сразу сообщим и перейдём к выплате 🤝`, usage: 0 },
+      { text: `Добрый день, (ИМЯ агента)!\n\nПоздравляем с успешным закрытием сделки и благодарим за плодотворное сотрудничество!\nМы направляем пакет документов застройщику для расчёта и согласования вознаграждения.\n\nПо срокам выплаты: мы всегда стараемся уложиться в 2-3 рабочих дня. Однако итоговый срок зависит от скорости согласования со стороны застройщика.\nК сожалению, мы не всегда можем повлиять на его оперативность, но гарантируем, что с нашей стороны сделаем всё возможное.\n\nКак только мы получим ответ от застройщика — сразу напишем вам для финального подтверждения.`, usage: 0 }
+    ];
+
+    const kazanFixationTemplates = [
+      { text: `Добрый день, (Имя агента)!\n\nПока ожидаем ответ застройщика, подскажите, ваш статус: самозанятый или ИП/ЮЛ, а также какая форма оплаты планируется у клиента? Если ипотека — можем передать в ипотечный сервис для подбора программы и быстрой отправки заявок в банки. 🏦`, usage: 0 },
+      { text: `Добрый день, (Имя)! \n\nДля подготовки к сделке просим уточнить: \n• Ваш статус (самозанятый / ИП / ЮЛ); \n• Форму оплаты клиента. \n\nЕсли планируется ипотека, подключим наш ипотечный сервис для подбора программы и быстрой отправки заявок в банки. \nБлагодарим за ответ.💰📈`, usage: 0 },
+      { text: `Добрый день, (Имя)!\n\nПока ожидаем обратную связь от застройщика, уточните, пожалуйста, следующие данные:\n\nваш организационно-правовой статус (самозанятый или ИП/ЮЛ);\n\nпланируемая форма оплаты клиента.\n\nВ случае ипотеки готовы подключить наш ипотечный сервис – это позволит подобрать оптимальную программу и оперативно направить заявки в банки.\n\nЖдём вашей информации.`, usage: 0 }
+    ];
+
+    const stageTopics = {
+      'Фиксация': [
+        {
+          name: 'Фиксация новая',
+          templates: [
+            { text: `Добрый день, (Имя агента)!\n\nПока ожидаем ответ застройщика, подскажите, какая форма оплаты планируется у клиента? Если ипотека — можем передать в ипотечный сервис для подбора программы и быстрой отправки заявок в банки. 🏦`, usage: 0 },
+            { text: `Добрый день, (Имя агента)!\n\nКлиент определился с формой оплаты? Если ипотека — мы можем передать на ипотечный сервис, чтобы подобрать программу, быстро подать заявки в банки. 💰📈`, usage: 0 },
+            { text: `Добрый день, партнер! 😊\n\nА пока мы ждём - уточните, пожалуйста, какая форма оплаты у клиента? \nЕсли рассматриваете ипотеку — рекомендуем наш ипотечный сервис. Это значительно сэкономит ваше время: коллеги подберут программу, подадут заявки в банки и доведут клиента до одобрения. 🤗`, usage: 0 }
+          ]
+        },
+        {
+          name: 'Фиксация новая (несколько заявок)',
+          templates: [
+            { text: 'Добрый день, уважаемый партнер!\n\nБлагодарим вас за заявки - мы уже приняли их в работу и активно взаимодействуем с застройщиком для проверки всех данных.\nТакже подскажите, пожалуйста, какая форма оплаты планируется у клиента?', usage: 0 },
+            { text: 'Добрый день, (Имя агента)! \n\nЗаявки приняты в работу, проверяем данные с застройщиком. \nУточните, пожалуйста, форму оплаты, которую планирует клиент. \nСпасибо.', usage: 0 },
+            { text: 'Добрый день, (Имя агента)! \n\nСпасибо за заявки, мы уже взяли их в работу. Скоро пришлём вам детали и информацию по комиссионному вознаграждению. \nА пока мы ожидаем ответ, подскажите, пожалуйста, какая форма оплаты планируется у клиента?', usage: 0 }
+          ]
+        },
+        {
+          name: 'Форма оплаты',
+          templates: [
+            { text: 'Добрый день, (Имя агента)! \n\nХотим также уточнить: \n✔ ФИО всех участников сделки, \n✔ Форма оплаты. \n\nНапоминаю: бронирование, запись в офис и фиксация - только через сервис Партнерский канал. Это для того, чтобы в дальнейшем не возникло вопросов при выплате комиссионного вознаграждения 🤝', usage: 0 },
+            { text: 'Добрый день, (Имя агента)! \n\nПодскажите, пожалуйста, какая форма оплаты планируется у клиента? \nЭто нужно, чтобы мы заранее сориентировались по ходу сделки и верно проинформировали вас по условиям выплаты комиссионного вознаграждения.', usage: 0 },
+            { text: ' (Имя агента), добрый день! \n\nПодскажите, какой тип оплаты выбрал клиент: наличка, ипотека, рассрочка? \nЭто поможет нам заранее всё настроить, чтобы выплата прошла без задержек, а вы не тратили время на уточнения потом.', usage: 0 }
+          ]
+        },
+        {
+          name: 'Фиксация не согласована',
+          templates: [
+            { text: '(Имя), добрый день! \n\nК сожалению, данный клиент уже закреплён за другим агентом у застройщика, поэтому зафиксировать его за вами не представляется возможным. \nМы готовы помочь подобрать альтернативный объект. Уточните, пожалуйста, ключевые параметры для вашего клиента (бюджет, метраж, этаж, сроки). \nТакже направляем файл с текущими акциями – возможно, он будет полезен при выборе. (ссылка на файл)', usage: 0 },
+            { text: 'Добрый день, (Имя)! \n\nСообщаем, что закрепление за вами не проходит, так как клиент уже числится за другим агентом в системе застройщика. \nМы заинтересованы в совместной работе, поэтому предлагаем рассмотреть другие варианты. Пожалуйста, сообщите основные пожелания клиента к объекту – мы подберём подходящие предложения. \nВ приложении – файл с актуальными акциями для вашего удобства. (ссылка на файл)', usage: 0 },
+            { text: 'Добрый день, (Имя)! \n\nКлиент уже обращался к застройщику и мы не можем его зафиксировать за вами. \nПри этом будем рады поработать с вами по другим жилым комплексам!  С радостью поможем подобрать для клиента идеальный вариант — расскажите, какие объекты ему интересны? \nДля удобства направляем файл с актуальными акциями — возможно, что‑то из предложений заинтересует.(ссылка на файл)', usage: 0 }
+          ]
+        },
+        {
+          name: 'Фиксация. Уточнение статуса у агента',
+          templates: [
+            { text: 'Здравствуйте, (Имя агента)! 😊 \n\nКак продвигается работа с клиентом? Мы на связи, чтобы помочь вам довести сделку до финала без заминок.\n\nЕсли договорённости уже есть — присылайте заявку на бронирование. Будем работать слаженно, чтобы вы быстрее получили свою комиссию 💰 \n\nВсегда рядом, если нужна поддержка на любом этапе 🤗', usage: 0 },
+            { text: 'Здравствуйте, (Имя агента)! 😊 \n\nПодскажите, как сейчас проходит работа с клиентом? Для нас очень важна ваша обратная связь. А если вы уже вышли на сделку, пожалуйста, направьте заявку на бронирование. \n\nБудем рады помочь и поддержать вас на любом этапе! 🤗', usage: 0 },
+            { text: 'Здравствуйте, (Имя агента)! 😊 \n\nКак идут переговоры? Надеюсь, наша подборка помогла вам усилить позицию перед клиентом. \n\nЕсли вы уже выходите на сделку, закрепите результат — направляйте заявку на бронирование. С нас — оперативное оформление и ваше заслуженное вознаграждение 💰 \n\nГордимся работой с профи и всегда на подхвате 🤗', usage: 0 }
+          ]
+        },
+        {
+          name: 'ЗС без этапа фиксации',
+          templates: [
+            { text: '(Имя), добрый день! \n\nБлагодарим за заявку по ЖК (НАЗВАНИЕ ЖК). Обращаем внимание: бронирование осуществляется через сервис «Подбор новостроек», фиксация напрямую у застройщика не предусмотрена. \nОтметим, что по данному ЖК сервис предлагает одну из наиболее выгодных комиссионных ставок. \nКогда клиент определится с квартирой, направляйте заявку на бронирование – мы примем её в работу незамедлительно.', usage: 0 },
+            { text: 'Добрый день, (Имя)! \n\nСпасибо за заявку по ЖК (НАЗВАНИЕ ЖК). Информируем вас о порядке работы: по данному объекту применяется бронирование через сервис «Подбор новостроек» (фиксация не практикуется). \nЭто даёт вам дополнительное преимущество – сервис предлагает повышенную комиссию по этому ЖК. \nПросим вас направить заявку на бронирование после выбора квартиры клиентом.', usage: 0 },
+            { text: '(Имя), добрый день! \n\nСпасибо за заявку по ЖК (НАЗВАНИЕ ЖК). Информируем: бронирование ведётся через сервис «Подбор новостроек» – фиксация у застройщика не предусмотрена. \nОтметим – по данному ЖК сервис предлагает повышенную комиссию. \nКогда клиент выберет конкретную квартиру, направьте заявку – мы незамедлительно возьмём её в работу.', usage: 0 }
+          ]
+        },
+        {
+          name: 'Фиксация продление',
+          templates: [
+            { text: '(Имя), добрый день. \n\nСпасибо за информацию. Направим застройщику запрос на продление фиксации по истечении срока (дд.мм.гггг). \nО результате сообщим дополнительно.', usage: 0 },
+            { text: 'Добрый день, (Имя)! \n\nБлагодарим за предоставленные данные. \nЗапросим у застройщика продление фиксации — срок истекает (дд.мм.гггг).\nКак только получим ответ, сразу вас проинформируем.', usage: 0 },
+            { text: 'Добрый день, (Имя)! \n\nИнформацию получили, спасибо. \nОтправили застройщику запрос на продление фиксации (срок до дд.мм.гггг). \nДержим вас в курсе — напишем, как будет ответ.', usage: 0 }
+          ]
+        },
+        {
+          name: 'Фиксация инструкция бронирования',
+          templates: [
+            { text: 'Добрый день, (Имя)! \n\nЧтобы мы могли начать расчёт по сделке - нам нужно, чтобы вы отправили заявку на бронирование через АвитоPro. \nВсё просто: \n\n1. Заходите в ЛК → «Подбор новостроек». \n2. Выбираете регион и нужный ЖК. \n3. Нажимаете на ЖК → в разделе «Объекты» увидите все квартиры. \n4. Под нужной - жмёте «Бронирование». \n5. Заполняете поля и в комментарии пишете все детали. \n6. Нажимаете «Отправить» и мы сразу её забираем в работу. \n\nЭто не «инструкция» - это ваш ключ к быстрой выплате.', usage: 0 },
+            { text: '(Имя), добрый день! \n\nДля расчёта по сделке просим направить заявку на бронирование через сервис «Подбор новостроек» в АвитоPro. \nПорядок действий: \n1. Войдите в личный кабинет → раздел «Подбор новостроек». \n2. Выберите регион и нужный ЖК. \n3. В разделе «Объекты» выберите квартиру. \n4. Нажмите «Бронирование», заполните поля, в комментарии укажите все детали. \n5. Отправьте заявку – мы сразу примем её в работу. \n\nБлагодарим за содействие.', usage: 0 },
+            { text: 'Добрый день, (Имя)! \n\nДля расчёта по сделке необходимо направить заявку на бронирование через АвитоPro (раздел «Подбор новостроек» в ЛК). \nАлгоритм стандартный: выбор региона, ЖК и квартиры, заполнение полей с указанием всех деталей в комментарии. После отправки мы незамедлительно принимаем заявку в работу. \n\nЕсли возникнут вопросы – мы на связи.', usage: 0 }
+          ]
+        },
+        {
+          name: 'Фиксация запрос бронирования',
+          templates: [
+            { text: `(Имя агента), добрый день!\n\nПоздравляем вас с выходом на сделку🙌\n\nДля корректного оформления сделки и обеспечения своевременной выплаты комиссии, пожалуйста, направьте заявку на бронирование через сервис «Подбор новостроек».\nЭтот шаг - ключевой для согласования данных и гарантии всех обязательств с нашей стороны.`, usage: 0 },
+            { text: `(Имя), добрый день!\n\nПоздравляем с выходом на сделку.\nДля корректного оформления и своевременной выплаты комиссии просим направить заявку на бронирование через сервис «Подбор новостроек».\nЭто необходимо для согласования данных и фиксации обязательств.\n\nБлагодарим за понимание.`, usage: 0 },
+            { text: `Добрый день, (Имя)!\n\nСделка состоялась – поздравляем!\n\nПросим вас оперативно подать заявку на бронирование через сервис «Подбор новостроек». Данный шаг является обязательным для согласования всех параметров и гарантирует фиксацию наших обязательств по выплате комиссии.\n\nЖдём заявку и остаёмся на связи.`, usage: 0 }
+          ]
+        },
+        {
+          name: 'Ходатайство/Согласие',
+          templates: [
+            { text: `(Имя), добрый день!\n\nБлагодарим за направленную заявку на бронирование в ЖК «...» – мы её получили и приняли в работу.\n\nДля передачи застройщику просим предоставить:\n🔸 (Название документа)\n\nПосле получения документа мы оперативно направим заявку и сообщим о решении.`, usage: 0 },
+            { text: `(Имя агента), добрый день!\nСпасибо, что отправили заявку на бронирование в ЖК «...» - мы её получили и уже держим в фокусе! \n\nЧтобы отправить её застройщику, нам нужно лишь одно:\n\n👉 (Название документа)\n\nКак только вы пришлёте его, мы сразу же сможем ускорить решение по заявке со стороны застройщика.`, usage: 0 },
+            { text: `Добрый день, (Имя)!\n\nСпасибо за заявку по ЖК «...» – она зарегистрирована и готовится к отправке.\n\nДля завершения подготовки необходим следующий документ:\n❗ (Название документа)\n\nПросим направить его нам, чтобы мы могли незамедлительно передать заявку застройщику и ускорить получение ответа.\n\nБудем на связи.`, usage: 0 }
+          ]
+        },
+        {
+          name: 'Акции файл',
+          templates: [
+            { text: `❗ Мы собрали для вас самые выгодные предложения от застройщиков в одном файле: `, usage: 0 },
+            { text: `🔹 Вся информация о выгодных предложениях для вашего клиента, есть в одном файле: `, usage: 0 },
+            { text: `🌸 Полный список актуальных предложений, акций по ЖК собрали для вас в один файл: `, usage: 0 }
+          ]
+        }
+      ],
+      'Бронирование': [
+        {
+          name: 'Какой тип бронирования',
+          templates: [
+            { text: '(Имя агента), добрый день. \n\nПока ждём ответ от застройщика, не могли бы вы уточнить, какой тип бронирования выбрал клиент: платный или бесплатный? \nЭто поможет нам быстрее подготовить всё к следующему шагу.', usage: 0 },
+            { text: '(Имя агента), добрый день. \n\nПока застройщик отвечает, просто уточним деталь: клиент выбрал платное или бесплатное бронирование? \nЭто нам поможет не пропустить ни один шаг и сделать всё ещё быстрее для вас.', usage: 0 },
+            { text: 'Добрый день, (Имя)! \n\nПока мы ожидаем решение застройщика, уточните, пожалуйста, тип бронирования, который выбрал ваш клиент (платный / бесплатный). \nДанная информация необходима нам для своевременной подготовки документов и расчётов.', usage: 0 }
+          ]
+        },
+        {
+          name: 'Запрос акта бронирования',
+          templates: [
+            { text: 'Добрый день, (Имя агента)! \n\nНапоминаем, что ожидаем от вас акт бронирования объекта. Этот документ является для нас финальным и необходимым для завершения процесса взаимодействия с застройщиком. Без него, к сожалению, мы не сможем закрыться по сделке. \nБлагодарим за понимание.', usage: 0 },
+            { text: 'Добрый день, (Имя)! \n\nНапоминаем, что ожидаем от вас акт бронирования. \nДокумент необходим для завершения сделки – без него мы не сможем закрыть взаимодействие с застройщиком. \nПросим направить его в ближайшее время.', usage: 0 },
+            { text: 'Добрый день, (Имя)! \n\nОбращаем ваше внимание: для завершения сделки нам требуется акт бронирования. \nЭто финальный документ, который позволяет нам закрыть все обязательства перед застройщиком. \nБудем признательны за его оперативное предоставление.', usage: 0 }
+          ]
+        },
+        {
+          name: 'Запрос документов',
+          labels: ["При ДДУ", "При ДКП", "ДДУ/ДКП"],
+          templates: [
+            { text: 'Добрый день, (Имя)! \n\nДля выплаты комиссии по ДДУ просим предоставить: \nОсновной вариант: \n• ДДУ в формате PDF \n• Электронная подпись (.sig/.sign в одном ZIP-архиве) \n\nАльтернативный вариант: \n• Драфт ДДУ \n• Выписка из эскроу-счёта \n\nОпционально: выписка из ЕГРН. \n\nОбязательно для всех: реквизиты (ИП/ЮЛ) и юридический адрес.', usage: 0 },
+            { text: 'Добрый день, (Имя)! \n\nДля выплаты комиссии по ДКП просим предоставить: \nОсновной вариант: \n• ДКП в формате PDF \n• Электронная подпись (.sig/.sign в одном ZIP-архиве) \n\nАльтернативный вариант: \n• Драфт ДКП \n• Чек об оплате или платёжное поручение \n\nОпционально: выписка из ЕГРН. \n\nОбязательно для всех: реквизиты (ИП/ЮЛ) и юридический адрес.', usage: 0 },
+            { text: 'Добрый день, (Имя)! \n\nДля выплаты комиссии просим предоставить документы в зависимости от типа договора: \n\nЕсли ДДУ: \n• Основной вариант: ДДУ (PDF) + электронная подпись (.sig/.sign в одном ZIP-архиве) \n• Альтернатива: драфт ДДУ + выписка из эскроу \n\nЕсли ДКП: \n• Основной вариант: ДКП (PDF) + электронная подпись (.sig/.sign в одном ZIP-архиве) \n• Альтернатива: драфт ДКП + чек (или платёжное поручение) \n\nОпционально: выписка из ЕГРН. \n\nОбязательно для всех: реквизиты (ИП/ЮЛ) и юридический адрес.', usage: 0 }
+          ]
+        },
+        {
+          name: 'Кол-во участников и дата сделки',
+          templates: [
+            { text: '(Имя), добрый день! \n\nЧтобы всё прошло ещё лучше, не могли бы вы уточнить: \n✅ Сколько человек будет в ДДУ/ДКП? \n✅ Удалось ли с клиентом наметить примерную дату сделки?', usage: 0 },
+            { text: 'Добрый день, (Имя)! \n\nА пока - два быстрых вопроса: \n1. Сколько человек в ДДУ/ДКП? \n2. Есть ли приблизительная дата сделки?', usage: 0 },
+            { text: 'Добрый день, (Имя)! \n\nЧтобы мы могли сопровождать сделку максимально точно, нам нужно чуть-чуть: \n✅Сколько участников в договоре? \n✅Есть ли ориентировочная дата сделки?', usage: 0 }
+          ]
+        },
+        {
+          name: 'Ходатайство/Согласие',
+          templates: [
+            { text: `(Имя), добрый день!\n\nБлагодарим за направленную заявку на бронирование в ЖК «...» – мы её получили и приняли в работу.\n\nДля передачи застройщику просим предоставить:\n🔸 (Название документа)\n\nПосле получения документа мы оперативно направим заявку и сообщим о решении.`, usage: 0 },
+            { text: `(Имя агента), добрый день!\nСпасибо, что отправили заявку на бронирование в ЖК «...» - мы её получили и уже держим в фокусе! \n\nЧтобы отправить её застройщику, нам нужно лишь одно:\n\n👉 (Название документа)\n\nКак только вы пришлёте его, мы сразу же сможем ускорить решение по заявке со стороны застройщика.`, usage: 0 },
+            { text: `Добрый день, (Имя)!\n\nСпасибо за заявку по ЖК «...» – она зарегистрирована и готовится к отправке.\n\nДля завершения подготовки необходим следующий документ:\n❗ (Название документа)\n\nПросим направить его нам, чтобы мы могли незамедлительно передать заявку застройщику и ускорить получение ответа.\n\nБудем на связи.`, usage: 0 }
+          ]
+        },
+        {
+          name: 'НДС и назначение платежа',
+          templates: [
+            { text: `(Имя), добрый день!\n\nДля корректного оформления выплаты просим уточнить:\n\nЯвляетесь ли вы плательщиком НДС?\n\nТребуется ли указывать ФИО риелтора в платёжном поручении?\n\nБлагодарим за ответ.`, usage: 0 },
+            { text: `Добрый день, (Имя)!\n\nДля подготовки платёжных документов и взаимодействия с бухгалтерией нам необходима следующая информация:\n• ваш статус по НДС (плательщик / не плательщик);\n• необходимость указания ФИО риелтора в платёжном поручении.\n\nПросим сообщить данные в ближайшее время. Спасибо.`, usage: 0 },
+            { text: `Добрый день, (Имя)!\n \t\nДва быстрых вопроса - чтобы выплата не застряла в бухгалтерии:\n\n🔸 Вы - плательщик НДС?\n🔸 Нужно ли в платежке писать ФИО риелтора?`, usage: 0 }
+          ]
+        },
+        {
+          name: 'Дата и чек брони',
+          region: 'ufa',
+          templates: [
+            { text: `Для завершения бронирования просим направить:\n• чек об оплате;\n• дату оплаты бронирования.\n\nБлагодарим за содействие.`, usage: 0 },
+            { text: `Для фиксации бронирования необходимы следующие документы:\n• чек об оплате;\n• дату оплаты бронирования.\n\nПросим направить их нам для оперативного завершения процесса.\nСпасибо.`, usage: 0 },
+            { text: `Для закрепления бронирования просим предоставить:\n• дату оплаты бронирования;\n• подтверждение оплаты.\n\nОжидаем документы.`, usage: 0 }
+          ]
+        },
+        {
+          name: 'Чек и договор/скрин брони',
+          region: 'kzn',
+          templates: [
+            { text: `Для фиксации бронирования просим направить:\n• договор бронирования / скриншот из ЛК;\n• чек об оплате.\n\nПосле получения документов направим запрос застройщику и сообщим о решении.`, usage: 0 },
+            { text: `Для закрепления бронирования просим предоставить:\n• договор бронирования (либо скриншот подтверждения из ЛК);\n• документ об оплате бронирования.`, usage: 0 },
+            { text: `Для завершения бронирования просим направить:\n• чек об оплате;\n• договор бронирования (или скриншот из личного кабинета).`, usage: 0 }
+          ]
+        }
+      ],
+      'Сделка': [
+        {
+          name: 'Расчет КВ на согласование с ЗС',
+          templates: defaultTemplates
+        },
+        {
+          name: 'Согласование КВ с агентом',
+          templates: [
+            { text: `Добрый день, (Имя агента)!\nПоздравляем с успешной сделкой, просьба проверить расчеты, все верно? \n\nОплата по договору оферты, клиент (ИМЯ клиента), кв №..., ЖК «...» (Литер ...), сумма сделки 0,00 руб, сумма для расчета 0,00, комиссия ...%, сумма 0,00 руб (комиссия Авито 1 000 руб)  Без НДС.\n\nВыплата по реквизитам: ... .`, usage: 0 },
+            { text: 'Вариант 2 будет добавлен позже', usage: 0 },
+            { text: 'Вариант 3 будет добавлен позже', usage: 0 }
+          ]
+        },
+        {
+          name: 'Передача в бухгалтерию',
+          templates: [
+            { text: `Добрый день, (ИМЯ агента)!\n\nСпасибо за оперативный отклик! 🔥\nУже передали информацию в бухгалтерию — процесс пошел 🚀\nВажный момент: выплаты осуществляются с понедельника по четверг. Срок выплат — 1–2 рабочих дня.\n❗️Небольшой нюанс: межбанковские переводы могут занять некоторое время — всё зависит от скорости работы банков-участников.\nПоздравляем с успешным завершением сделки! 🏆`, usage: 0 },
+            { text: `Добрый день, (ИМЯ агента)!\n\nСпасибо за оперативный отклик — с такими партнёрами процессы идут заметно быстрее 🤝\nИнформацию уже передали в бухгалтерию, запуск выплаты оформлен ⚡\n\nВыплаты производятся с понедельника по четверг, обычно это занимает 1–2 рабочих дня. Информируем, что межбанковские переводы могут идти дольше — это зависит от графика и скорости работы банков.\n\nПоздравляем с успешным завершением сделки! 🏆`, usage: 0 },
+            { text: `(ИМЯ агента), добрый день!\n\nБлагодарим за быстрый ответ — это помогает ускорять все финансовые процессы \nВаши данные уже у бухгалтерии, сейчас платёж готовится к отправке. 💸\n\nВыплаты делаем с понедельника по четверг, стандартный срок — 1–2 рабочих дня. Возможна небольшая задержка из‑за межбанковских процедур, тут всё зависит от банков-участников.\n\nПоздравляем с закрытой сделкой и ещё одним результатом в вашу воронку! 🙌`, usage: 0 }
+          ]
+        },
+        {
+          name: 'КВ оплачено агенту',
+          templates: [
+            { text: `Добрый день, (Имя агента)!\n\nВозвращаемся к вам с хорошей новостью 😊\n\nКомиссия по клиенту (ФИО клиента) была оплачена. \nСредства уже должны были поступить вам. \n\nЦеним партнерство с вами и благодарим за выбор нашего сервиса! \nЖелаем вам заключать исключительно выгодные и успешные сделки! \nПусть каждый ваш шаг ведет к успеху и процветанию!\n\nБудем ожидать от вас новых заявок 🤝`, usage: 0 },
+            { text: `Добрый день, (Имя агента)!\n\nКомиссия за клиента (ФИО клиента) уже переведена. Деньги должны быть у вас на счету.💸\n\nСпасибо за вашу работу! Рассчитываем на новые совместные сделки.\nБудем на связи, пишите, если понадобятся уточнения.😉`, usage: 0 },
+            { text: `Добрый день, (Имя агента)!\n\nХорошие новости — комиссия по (ФИО клиента) прошла. Финансовая часть сделки закрыта, можете проверить свой баланс.💰\n\nРаботать с вами — одно удовольствие. Спасибо, что выбираете нас!\nБудем рады видеть вас в числе наших ключевых партнеров и дальше.\nХорошего вам дня и отличных сделок!🤝`, usage: 0 }
+          ]
+        },
+        {
+          name: 'Запрос СФ у агента',
+          templates: [
+            { text: `(Имя агента), добрый день! 😊\nПо просьбе бухгалтерии просим вас выставить счёт-фактуру по клиенту: \nДату СФ просьба поставить от \nДокумент об отгрузке: Акт\nПериод:\nСумма:   руб. \nЗастройщик: \nЮридический адрес застройщика: \nИНН/КПП:\n№ и дата договора с застройщиком: \n\nЕсли у вас останутся вопросы, будем рады помочь!🤝`, usage: 0 },
+            { text: 'Вариант 2 будет добавлен позже', usage: 0 },
+            { text: 'Вариант 3 будет добавлен позже', usage: 0 }
+          ]
+        },
+        {
+          name: 'Подписание закрывающих документов',
+          templates: [
+            { text: `Добрый день, (Имя агента)!😊\nПросим вас подписать закрывающие документы. Подписанные документы необходимо отправить нам в этот чат. Обратите внимание, что присланные документы должны быть в высоком качестве и читабельными. \nНапоминаем, что в УПД необходимо заполнить и подписать строки 15 и 18. Уточните, используете ли вы электронный документооборот в своей работе? \n\nЕсли у вас возникнут вопросы, мы будем рады помочь!😉`, usage: 0 },
+            { text: `Добрый день, (Имя агента)!\n\nМы подготовили закрывающие документы. Просим вас подписать их со своей стороны и отправить скан или фото в этот чат.\n\n📍Обратите, пожалуйста, внимание на два момента:\n• Снимки должны быть чёткими и читаемыми – все реквизиты и подписи должны просматриваться без увеличения.\n• В УПД обязательно заполните и подпишите строки 15 и 18 – это требование для правильного учёта у нас и у налоговой.\n\nИ небольшой вопрос к вам: используете ли вы электронный документооборот (ЭДО)? Если да, мы могли бы перейти на электронные подписи – это ускорит процесс.\n\nЕсли возникнут сложности или нужны пояснения – пишите, поможем.\nСпасибо за оперативность!`, usage: 0 },
+            { text: `Добрый день, (Имя агента)! \nПодпишите, пожалуйста, закрывающие документы и пришлите их в этот чат.\n\n✅ Что важно:\n\nкачество фото/скана – чтобы всё было разборчиво;\n\nв УПД строки 15 и 18 – должны быть заполнены и подписаны.\n\nИ вопрос на будущее: вы работаете с ЭДО?\n\nЕсли что-то не так или нужна помощь – я на связи. Жду от вас файлы.😉`, usage: 0 }
+          ]
+        },
+        {
+          name: 'Агент запросил закрывающие',
+          templates: [
+            { text: `(Имя агента), добрый день.\nЗакрывающие документы готовим после закрытия отчетного периода с застройщиком — обычно это 13–14 рабочий день каждого месяца.\nКак только документы будут подписаны и согласованы со стороны застройщика — сразу же направим вам. 🤝\n\nЕсли остались вопросы — пишите, всегда на связи😉`, usage: 0 },
+            { text: `(Имя агента), добрый день.😊\nЗакрывающие документы мы готовим только после того, как застройщик закроет свой отчётный период. Обычно это приходится на 13–14 рабочий день месяца (ориентируйтесь на эти даты).\n\nКак только получим от застройщика подписанные и согласованные оригиналы – в тот же день перешлём вам в этот чат.\n\nЕсли у вас появятся вопросы, пожалуйста, обращайтесь.`, usage: 0 },
+            { text: `(Имя агента), добрый день.😊\nМы отправляем их после того, как застройщик закрывает свой период – это примерно 13–14 рабочий день каждого месяца.\n\nСразу после подписи и согласования с их стороны – сразу же направим вам. \n\nЕсли у вас останутся вопросы, будем рады помочь!🤝`, usage: 0 }
+          ]
+        },
+        {
+          name: 'Если Д/с не поступили',
+          templates: [
+            { text: `Добрый день, (Имя агента)!\nВозвращаемся к вам с обратной связью. К сожалению, денежные средства еще не поступили застройщику. Если у вас будет возможность подгрузить пополненный эскроу-счет или чек об оплате, то это значительно ускорит процесс выплаты, так как информация от банка поступает застройщику дольше, чем клиенту. \n\nСледующая сверка с застройщиком по поступлению денежных средств состоится в пятницу. Мы обязательно вернемся к вам с обратной связью.`, usage: 0 },
+            { text: `Добрый день, (Имя)!\n\nМы только что проверили поступление денег от клиента. К сожалению, на счёт застройщика они пока не пришли – банковская информация иногда идёт с задержкой.\n\nЧтобы не ждать, пока банк передаст данные застройщику, вы можете ускорить процесс: если у вас есть пополненный эскроу-счёт или чек об оплате – пришлите их нам. Мы передадим документы застройщику напрямую, и выплата пройдёт быстрее.\n\nБлижайшая сверка с застройщиком – в пятницу. В этот день мы обязательно обновим информацию и напишем вам.\n\nЕсли есть вопросы – мы на связи.`, usage: 0 },
+            { text: `Добрый день, (Имя)!\n\nСредства от клиента пока не поступили застройщику – банковская информация иногда приходит с задержкой.\nЕсли направите нам выписку по эскроу или чек об оплате, мы передадим их застройщику и ускорим выплату.\nСледующая сверка – в пятницу, о результатах сообщим.\n\nБудем признательны за содействие.`, usage: 0 }
+          ]
+        },
+        {
+          name: 'ЗС Самолёт. Постоплата.',
+          templates: [
+            { text: `(Имя агента), также напоминаем, что с застройщиком «Самолет» мы перешли на постоплатную систему расчета. Как только получим подтверждение от застройщика о поступлении средств на наш счёт, мы обязательно сообщим вам и сразу отправим заявку на выплату.🤝`, usage: 0 },
+            { text: `(Имя агента), добрый день! 😊\nСейчас с застройщиком «Самолет» мы работаем по постоплате.\nЭто значит, что мы сможем выплатить вам комиссию после выплаты от застройщика. Это не быстрый процесс, у которого нет точных сроков. Понимаем, что ожидаете длительное время, и как только мы получим средства от застройщика, сразу вам выплатим комиссию.🤝`, usage: 0 },
+            { text: `(Имя агента), добрый день!\nВажный момент по выплате: с застройщиком «Самолет» мы работаем по постоплате. Выплата вашей комиссии произойдет после поступления средств от застройщика на наш расчетный счет.\n\nКак только деньги поступят от застройщика, мы сразу же переведем их вам и обязательно напишем об этом. \nСпасибо за отличную работу! 😊`, usage: 0 }
+          ]
+        },
+        {
+          name: 'Доплата проведена',
+          templates: [
+            { text: `(Имя), добрый день!\n\nСообщаем, что доплата по клиенту (Имя клиента) проведена. Средства уже должны быть у вас на счёте.\n\nБлагодарим за сотрудничество и будем рады новым заявкам.`, usage: 0 },
+            { text: `Добрый день, (Имя)!\n\nИнформируем вас о поступлении доплаты по клиенту (Имя клиента). Средства переведены, просим проверить баланс.\n\nЦеним наше сотрудничество и надеемся на дальнейшие совместные проекты.\n\nВсегда на связи по возникающим вопросам.`, usage: 0 },
+            { text: `(Имя), добрый день!\n\nСообщаем, что доплата по клиенту (Имя клиента) поступила. Средства уже должны быть зачислены на ваш счёт, просим вас проверить баланс.\n\nБлагодарим за доверие и плодотворное сотрудничество. Надеемся на дальнейшее взаимодействие и будем рады новым заявкам от вас.\n\nЕсли у вас возникнут вопросы, мы всегда на связи.`, usage: 0 }
+          ]
+        }
+      ]
+    };
+
+    // ========== ОСТАЛЬНАЯ ЛОГИКА ==========
+    const allStageNames = Object.keys(stageTopics);
+    let savedStages = JSON.parse(JSON.stringify(stageTopics));
+
+    function saveAllData(showToast) {
+      localStorage.setItem('partnerStagesData', JSON.stringify(savedStages));
+      if (showToast) showToastMessage('✅ Сохранено');
+    }
+
+    let currentRegion = '';
+    let currentStage = 'Фиксация';
+    let currentTopicIndex = 0;
+    let currentVariantIndex = 0;
+    let topAnEnabled = false;
+
+    // ---- Общие (облачные) данные: новые темы, правки, удаления, регионы ----
+    let cloudCustomTopics = [];   // [{stage, region, name, text, author, date}]
+    let cloudEdits = {};          // key -> {text, author, date}
+    let cloudDeletedTopics = new Set(); // set of "stage|||topic|||region"
+    let cloudRegions = [];        // [{code, name, author, date}]
+
+    function editKey(stage, topicName, variantIndex, region) {
+      return `${stage}|||${topicName}|||${variantIndex}|||${region || ''}`;
+    }
+    function deleteTopicKey(stage, topicName, region) {
+      return `${stage}|||${topicName}|||${region || ''}`;
+    }
+    function isTopicDeleted(stage, topicName, region) {
+      return cloudDeletedTopics.has(deleteTopicKey(stage, topicName, region)) ||
+             cloudDeletedTopics.has(deleteTopicKey(stage, topicName, ''));
+    }
+
+    async function loadCloudData() {
+      if (!TEMPLATES_API_URL || TEMPLATES_API_URL.indexOf('ВСТАВЬТЕ') === 0) return;
+      try {
+        const res = await fetch(TEMPLATES_API_URL);
+        const data = await res.json();
+        cloudCustomTopics = (data.newTopics || []);
+        cloudEdits = {};
+        (data.edits || []).forEach(e => {
+          cloudEdits[editKey(e.stage, e.topic, e.variantIndex, e.region)] = e;
+        });
+        cloudDeletedTopics = new Set((data.deletedTopics || []).map(d => deleteTopicKey(d.stage, d.topic, d.region)));
+        cloudRegions = (data.regions || []);
+        renderDynamicRegions();
+        renderStages();
+      } catch (err) {
+        console.warn('Не удалось загрузить общие шаблоны:', err);
+      }
+    }
+
+    function renderDynamicRegions() {
+      cloudRegions.forEach(r => {
+        if (!dropdownMenu.querySelector(`[data-value="${r.code}"]`)) {
+          const item = document.createElement('div');
+          item.className = 'dropdown-item';
+          item.dataset.value = r.code;
+          item.textContent = `🏙️ ${r.name}`;
+          dropdownMenu.appendChild(item);
+        }
+        const atRegionSelect = document.getElementById('atRegion');
+        if (atRegionSelect && !atRegionSelect.querySelector(`option[value="${r.code}"]`)) {
+          const opt = document.createElement('option');
+          opt.value = r.code;
+          opt.textContent = r.name;
+          atRegionSelect.insertBefore(opt, atRegionSelect.querySelector('option[value="all"]'));
+        }
+      });
+    }
+
+    function sendToCloud(payload) {
+      return fetch(TEMPLATES_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+    }
+
+    const stageContainer = document.getElementById('stageContainer');
+    const topicsContainer = document.getElementById('topicsContainer');
+    const templatesContainer = document.getElementById('templatesContainer');
+    const searchInput = document.getElementById('searchTopicsInput');
+    const emptyMsg = document.getElementById('emptyLineMessage');
+    const settingsBtn = document.getElementById('settingsButton');
+    const settingsModal = document.getElementById('settingsModal');
+    const settingsModalClose = document.getElementById('settingsModalClose');
+    const themeBtns = document.getElementById('themeButtons');
+    const bgColorBtns = document.getElementById('bgColorButtons');
+    const cardStyleBtns = document.getElementById('cardStyleButtons');
+    const dropdownBtn = document.getElementById('dropdownBtn');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+    const selectedRegionSpan = document.getElementById('selectedRegion');
+
+    function getCustomTopicsForStage(stage) {
+      return cloudCustomTopics
+        .filter(t => t.stage === stage)
+        .filter(t => !t.region || t.region === 'all' || t.region === currentRegion)
+        .filter(t => !isTopicDeleted(stage, t.name, t.region))
+        .map(t => ({
+          name: t.name,
+          templates: [{ text: t.text, usage: 0 }],
+          isCustom: true,
+          author: t.author,
+          date: t.date
+        }));
+    }
+
+    function getCurrentTopics() {
+      let topics = savedStages[currentStage] || [];
+      let filtered = topics.filter(t => {
+        if (t.region && t.region !== currentRegion) return false;
+        if (t.name === 'Акции файл' && !currentRegion) return false;
+        if (isTopicDeleted(currentStage, t.name, currentRegion)) return false;
+        return true;
+      });
+      return filtered.concat(getCustomTopicsForStage(currentStage));
+    }
+
+    function updateTopAnStatus() {
+      const topanStatus = document.getElementById('topanStatus');
+      const topanToggle = document.getElementById('topanToggle');
+      if (topanStatus) {
+        topanStatus.textContent = topAnEnabled ? 'ON' : 'OFF';
+        topanStatus.style.color = topAnEnabled ? 'var(--primary-green)' : 'var(--primary-red)';
+      }
+      if (topanToggle) {
+        topanToggle.checked = topAnEnabled;
+      }
+      renderTemplates();
+    }
+
+    function getFilteredTopics() {
+      const q = searchInput.value.toLowerCase().trim();
+      const topics = getCurrentTopics();
+      if (!q) return topics;
+      return topics.filter(t => t.name.toLowerCase().includes(q) || t.templates.some(tpl => tpl.text.toLowerCase().includes(q)));
+    }
+
+    function getStageList() {
+      return allStageNames;
+    }
+
+    function highlightText(text, query) {
+      if (!query.trim()) return escapeHtml(text);
+      const q = query.trim().replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${q})`, 'gi');
+      return escapeHtml(text).replace(regex, '<span class="search-highlight">$1</span>');
+    }
+
+    function applySettings() {
+      const theme = localStorage.getItem('app_theme') || 'auto';
+      const bgColor = localStorage.getItem('app_bgColor') || 'default';
+      const cardStyle = localStorage.getItem('app_cardStyle') || 'default';
+      const neon = localStorage.getItem('app_neon') === 'true';
+      document.body.classList.remove('dark-theme', 'bg-green', 'bg-warm', 'bg-purple', 'card-flat', 'card-accent', 'neon-theme');
+      if (theme === 'dark') document.body.classList.add('dark-theme');
+      if (bgColor !== 'default') document.body.classList.add(`bg-${bgColor}`);
+      if (cardStyle !== 'default') document.body.classList.add(`card-${cardStyle}`);
+      if (neon) document.body.classList.add('neon-theme');
+      document.querySelectorAll('[data-theme]').forEach(btn => btn.classList.toggle('active', btn.dataset.theme === theme));
+      document.querySelectorAll('[data-bg]').forEach(btn => btn.classList.toggle('active', btn.dataset.bg === bgColor));
+      document.querySelectorAll('[data-card]').forEach(btn => btn.classList.toggle('active', btn.dataset.card === cardStyle));
+    }
+
+    function setSetting(key, val) { localStorage.setItem(key, val); applySettings(); }
+    function bindSettings() {
+      themeBtns.querySelectorAll('[data-theme]').forEach(btn => btn.onclick = () => setSetting('app_theme', btn.dataset.theme));
+      bgColorBtns.querySelectorAll('[data-bg]').forEach(btn => btn.onclick = () => setSetting('app_bgColor', btn.dataset.bg));
+      cardStyleBtns.querySelectorAll('[data-card]').forEach(btn => btn.onclick = () => setSetting('app_cardStyle', btn.dataset.card));
+    }
+
+    function renderStages() {
+      const stages = getStageList();
+      stageContainer.innerHTML = '';
+      if (!stages.length) {
+        stageContainer.style.display = 'none';
+        emptyMsg.style.display = 'block';
+        emptyMsg.innerHTML = 'Нет этапов. Добавьте их в коде.';
+        return;
+      }
+      stageContainer.style.display = 'grid';
+      emptyMsg.style.display = 'none';
+      stages.forEach((stage) => {
+        const btn = document.createElement('button');
+        btn.className = 'topic-btn' + (stage === currentStage ? ' active' : '');
+        btn.textContent = stage;
+        btn.onclick = () => {
+          currentStage = stage;
+          currentTopicIndex = 0;
+          currentVariantIndex = 0;
+          renderStages();
+          renderTopics();
+          renderTemplates();
+        };
+        stageContainer.appendChild(btn);
+      });
+      renderTopics();
+      renderTemplates();
+    }
+
+    function renderTopics() {
+      const topics = getFilteredTopics();
+      topicsContainer.innerHTML = '';
+      if (!topics.length) {
+        topicsContainer.style.display = 'none';
+        return;
+      }
+      topicsContainer.style.display = 'grid';
+      topicsContainer.className = 'grid-container topics-list-container fade-container';
+      setTimeout(() => topicsContainer.classList.add('active'), 20);
+
+      topics.forEach((t, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'topic-btn' + (i === currentTopicIndex ? ' active' : '');
+        btn.textContent = (t.isCustom ? '🆕 ' : '') + t.name;
+        btn.onclick = () => {
+          currentTopicIndex = i;
+          currentVariantIndex = 0;
+          renderTopics();
+          renderTemplates();
+        };
+        topicsContainer.appendChild(btn);
+      });
+      if (currentTopicIndex >= topics.length) currentTopicIndex = 0;
+      renderTemplates();
+    }
+
+    function renderTemplates() {
+      const topics = getFilteredTopics();
+      if (!topics.length || currentTopicIndex >= topics.length) {
+        templatesContainer.innerHTML = '';
+        return;
+      }
+      const topic = topics[currentTopicIndex];
+      let variants = topic.templates;
+
+      const isCalculationTopic = (topic.name === 'Расчет КВ на согласование с ЗС');
+
+      if (isCalculationTopic) {
+        let baseTemplates = defaultTemplates;
+        if (currentRegion === 'ufa') {
+          baseTemplates = ufaTemplates;
+        }
+        if (topAnEnabled) {
+          variants = topAnTemplates;
+        } else {
+          variants = baseTemplates;
+        }
+      }
+
+      const isFixationNew = (topic.name === 'Фиксация новая' && currentStage === 'Фиксация');
+      if (isFixationNew && currentRegion === 'kzn') {
+        variants = kazanFixationTemplates;
+      }
+
+      let displayTexts = [];
+      const isPromoFileTopic = (topic.name === 'Акции файл');
+      if (isPromoFileTopic) {
+        const link = regionFileLinks[currentRegion] || regionFileLinks['kzn'];
+        displayTexts = variants.map(v => v.text + link);
+      }
+
+      if (!variants || !variants.length) {
+        templatesContainer.innerHTML = '<div class="empty-state">Нет шаблонов для этой темы</div>';
+        return;
+      }
+      if (currentVariantIndex >= variants.length) currentVariantIndex = 0;
+      const currentVariant = variants[currentVariantIndex];
+
+      let topanHtml = '';
+      if (isCalculationTopic) {
+        const isEkb = (currentRegion === 'ekb');
+        const disabledAttr = isEkb ? 'disabled' : '';
+        topanHtml = `
+          <div class="topan-switch">
+            <span class="toggle-label">ТОП АН</span>
+            <span class="toggle-status" id="topanStatus">${topAnEnabled ? 'ON' : 'OFF'}</span>
+            <label for="topanToggle" style="display:flex; align-items:center;">
+              <input type="checkbox" id="topanToggle" ${topAnEnabled ? 'checked' : ''} ${disabledAttr} style="display:none;">
+              <div class="toggle-track" id="topanTrack"><div class="toggle-knob"></div></div>
+            </label>
+            ${isEkb ? '<span style="font-size:0.65rem; color:var(--text-secondary);">(вкл.)</span>' : ''}
+          </div>
+        `;
+      }
+
+      let variantButtonsHtml = '';
+      const labels = topic.labels || [];
+      for (let i = 0; i < variants.length; i++) {
+        const label = (labels.length === variants.length && labels[i]) ? labels[i] : `Вариант ${i+1}`;
+        variantButtonsHtml += `<button class="variant-btn ${i === currentVariantIndex ? 'active' : ''}" data-variant="${i}" title="${escapeHtml(variants[i].text)}">${label}</button>`;
+      }
+
+      const query = searchInput.value.trim();
+      let displayText = '';
+      if (isPromoFileTopic && displayTexts.length > 0) {
+        displayText = displayTexts[currentVariantIndex];
+      } else {
+        displayText = currentVariant.text;
+      }
+
+      // ---- Применяем правку из общего хранилища, если есть ----
+      const eKey = editKey(currentStage, topic.name, currentVariantIndex, currentRegion);
+      const edit = cloudEdits[eKey] || cloudEdits[editKey(currentStage, topic.name, currentVariantIndex, '')];
+      let metaHtml = '';
+      if (edit && !topic.isCustom) {
+        displayText = edit.text;
+        metaHtml = `<div class="meta-info">✏️ Изменено: ${escapeHtml(edit.author || '')}, ${escapeHtml(edit.date || '')}</div>`;
+      } else if (topic.isCustom) {
+        metaHtml = `<div class="meta-info">➕ Добавлено: ${escapeHtml(topic.author || '')}, ${escapeHtml(topic.date || '')}</div>`;
+      }
+
+      const finalDisplayText = query ? highlightText(displayText, query) : escapeHtml(displayText);
+
+      const canEdit = !isPromoFileTopic;
+
+      const html = `
+        ${topanHtml}
+        <div class="variant-selector">${variantButtonsHtml}</div>
+        <div class="variant-card fade-container">
+          <div class="variant-text">${finalDisplayText.replace(/\n/g, '<br>')}</div>
+          <div class="copy-wrapper">
+            ${canEdit ? `<button class="edit-btn" id="editVariantBtn">✏️ Редактировать</button>` : ''}
+            ${canEdit ? `<button class="edit-btn" id="deleteTopicBtn" style="color:var(--primary-red);">🗑 Удалить тему</button>` : ''}
+            <button class="copy-btn" data-text="${escapeHtml(displayText)}">📋 Копировать</button>
+          </div>
+          ${metaHtml}
+        </div>
+      `;
+      templatesContainer.innerHTML = html;
+
+      const card = templatesContainer.querySelector('.variant-card');
+      if (card) setTimeout(() => card.classList.add('active'), 20);
+
+      const topanToggle = document.getElementById('topanToggle');
+      if (topanToggle) {
+        topanToggle.addEventListener('change', function() {
+          if (currentRegion !== 'ekb') {
+            topAnEnabled = this.checked;
+            updateTopAnStatus();
+          }
+        });
+      }
+
+      document.querySelectorAll('.variant-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const idx = parseInt(btn.dataset.variant);
+          if (!isNaN(idx)) {
+            currentVariantIndex = idx;
+            renderTemplates();
+          }
+        });
+      });
+
+      const copyBtn = document.querySelector('.copy-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', (e) => {
+          const text = copyBtn.getAttribute('data-text');
+          navigator.clipboard.writeText(text).then(() => {
+            copyBtn.textContent = '✓ Скопировано';
+            copyBtn.classList.add('copied');
+            if (topic.templates[currentVariantIndex]) {
+              topic.templates[currentVariantIndex].usage = (topic.templates[currentVariantIndex].usage || 0) + 1;
+              saveAllData();
+            }
+            showToastMessage('Скопировано!');
+            setTimeout(() => {
+              copyBtn.textContent = '📋 Копировать';
+              copyBtn.classList.remove('copied');
+            }, 2000);
+          }).catch(() => alert('Не удалось скопировать текст'));
+        });
+      }
+
+      const editVariantBtn = document.getElementById('editVariantBtn');
+      if (editVariantBtn) {
+        editVariantBtn.addEventListener('click', () => {
+          openEditModal(topic, currentVariantIndex, displayText);
+        });
+      }
+
+      const deleteTopicBtnEl = document.getElementById('deleteTopicBtn');
+      if (deleteTopicBtnEl) {
+        deleteTopicBtnEl.addEventListener('click', () => {
+          openDeleteModal(topic);
+        });
+      }
+    }
+
+    function showToastMessage(msg) {
+      const t = document.createElement('div');
+      t.className = 'toast';
+      t.textContent = msg;
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 2000);
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    // ---------- Выпадающий список ----------
+    dropdownBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownMenu.classList.toggle('open');
+      dropdownBtn.classList.toggle('open');
+    });
+    document.addEventListener('click', () => {
+      dropdownMenu.classList.remove('open');
+      dropdownBtn.classList.remove('open');
+    });
+
+    dropdownMenu.addEventListener('click', (e) => {
+      const item = e.target.closest('.dropdown-item');
+      if (!item) return;
+      const value = item.dataset.value;
+      const name = item.textContent.trim();
+      currentRegion = value;
+      selectedRegionSpan.textContent = name;
+      dropdownMenu.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      dropdownMenu.classList.remove('open');
+      dropdownBtn.classList.remove('open');
+
+      if (currentRegion === 'ekb') {
+        topAnEnabled = true;
+        updateTopAnStatus();
+      } else {
+        topAnEnabled = false;
+        updateTopAnStatus();
+      }
+      currentTopicIndex = 0;
+      currentVariantIndex = 0;
+      renderTopics();
+    });
+
+    // ---------- Пасхалки ----------
+    settingsBtn.addEventListener('click', (e) => {
+      if (e.shiftKey) {
+        e.preventDefault();
+        const current = localStorage.getItem('app_neon') === 'true';
+        localStorage.setItem('app_neon', !current);
+        applySettings();
+        showToastMessage(current ? '✨ Неон выключен' : '🌈 Неон включён');
+      } else {
+        settingsModal.style.display = 'flex';
+      }
+    });
+    settingsModalClose.onclick = () => settingsModal.style.display = 'none';
+    settingsModal.onclick = (e) => { if (e.target === settingsModal) settingsModal.style.display = 'none'; };
+
+    let logoClickCount = 0, logoTimer;
+    const logo = document.querySelector('.avito-logo-svg');
+    if (logo) {
+      logo.addEventListener('click', () => {
+        logoClickCount++;
+        clearTimeout(logoTimer);
+        logoTimer = setTimeout(() => logoClickCount = 0, 800);
+        if (logoClickCount === 5) {
+          logoClickCount = 0;
+          const div = document.createElement('div');
+          div.className = 'modal-overlay';
+          div.innerHTML = `<div class="modal-content" style="max-width:300px; text-align:center;"><div class="modal-header"><h2>🕹️ Секретный кликер</h2><button class="modal-close close">✕</button></div><div class="modal-body"><div id="score">0</div><button id="clickBtn" style="padding:10px 20px; margin:10px;">Нажми меня!</button></div></div>`;
+          document.body.appendChild(div);
+          let score = 0;
+          const scoreSpan = div.querySelector('#score');
+          div.querySelector('#clickBtn').onclick = () => { score++; scoreSpan.textContent = score; if (score === 10) { alert('🎉 Ты мастер кликов! 🎉'); div.remove(); } };
+          div.querySelector('.close').onclick = () => div.remove();
+          setTimeout(() => { if (div.parentNode) div.remove(); }, 30000);
+        }
+      });
+    }
+
+    searchInput.addEventListener('input', function() {
+      if (searchInput.value.trim().toUpperCase() === 'XO') {
+        searchInput.value = '';
+        const choiceModal = document.createElement('div');
+        choiceModal.className = 'modal-overlay';
+        choiceModal.innerHTML = `<div class="modal-content" style="max-width:350px;"><div class="modal-header"><h2>🎮 Крестики-нолики</h2><button class="modal-close close">✕</button></div><div class="modal-body" style="text-align:center;"><p>Выберите сторону:</p><div style="display:flex; gap:20px; justify-content:center;"><button id="chooseX" style="background:var(--primary-blue); color:white; padding:10px 20px; border-radius:30px;">❌ Крестик</button><button id="chooseO" style="background:var(--primary-green); color:white; padding:10px 20px; border-radius:30px;">⭕ Нолик</button></div></div></div>`;
+        document.body.appendChild(choiceModal);
+        const startGame = (playerSymbol) => {
+          choiceModal.remove();
+          let board = ['', '', '', '', '', '', '', '', ''];
+          let gameActive = true, turn = 'player';
+          const modal = document.createElement('div');
+          modal.className = 'modal-overlay';
+          modal.innerHTML = `<div class="modal-content" style="max-width:450px;"><div class="modal-header"><h2>❌ Крестики-нолики против компьютера ⭕</h2><button class="modal-close close">✕</button></div><div class="modal-body" style="text-align:center;"><div class="ttt-status" id="tttStatus"></div><div class="ttt-board" id="tttBoard"></div><button class="ttt-reset" id="resetTTT">🔄 Новая игра</button></div></div>`;
+          document.body.appendChild(modal);
+          const boardDiv = modal.querySelector('#tttBoard');
+          const statusDiv = modal.querySelector('#tttStatus');
+          const resetBtn = modal.querySelector('#resetTTT');
+          function renderBoard() {
+            boardDiv.innerHTML = '';
+            for (let i=0; i<9; i++) {
+              const cell = document.createElement('div');
+              cell.className = 'ttt-cell';
+              cell.textContent = board[i] === 'X' ? '❌' : (board[i] === 'O' ? '⭕' : '');
+              cell.dataset.index = i;
+              cell.onclick = () => playerMove(i);
+              boardDiv.appendChild(cell);
+            }
+          }
+          function checkWinner(b, sym) {
+            const wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+            return wins.some(p => p.every(i => b[i] === sym));
+          }
+          function isFull() { return board.every(c => c !== ''); }
+          function systemMove() {
+            if (!gameActive || turn !== 'system') return;
+            const sysSym = playerSymbol === 'X' ? 'O' : 'X';
+            const empty = board.reduce((arr, cell, i) => cell === '' ? arr.concat(i) : arr, []);
+            if (empty.length) {
+              const move = empty[Math.floor(Math.random() * empty.length)];
+              board[move] = sysSym;
+              renderBoard();
+              if (checkWinner(board, sysSym)) { statusDiv.innerHTML = '💻 Система победила!'; gameActive = false; }
+              else if (isFull()) { statusDiv.innerHTML = '🤝 Ничья!'; gameActive = false; }
+              else { turn = 'player'; statusDiv.innerHTML = `Ваш ход (${playerSymbol === 'X' ? '❌' : '⭕'})`; }
+            }
+          }
+          function playerMove(idx) {
+            if (!gameActive || turn !== 'player') return;
+            if (board[idx] !== '') return;
+            board[idx] = playerSymbol;
+            renderBoard();
+            if (checkWinner(board, playerSymbol)) { statusDiv.innerHTML = '🎉 Вы победили! Поздравляем! 🎉'; gameActive = false; }
+            else if (isFull()) { statusDiv.innerHTML = '🤝 Ничья!'; gameActive = false; }
+            else { turn = 'system'; statusDiv.innerHTML = 'Система думает...'; setTimeout(systemMove, 400); }
+          }
+          renderBoard();
+          statusDiv.innerHTML = `Ваш ход (${playerSymbol === 'X' ? '❌' : '⭕'})`;
+          resetBtn.onclick = () => {
+            board = ['', '', '', '', '', '', '', '', ''];
+            gameActive = true;
+            turn = 'player';
+            renderBoard();
+            statusDiv.innerHTML = `Ваш ход (${playerSymbol === 'X' ? '❌' : '⭕'})`;
+          };
+          modal.querySelector('.close').onclick = () => modal.remove();
+          modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
+        };
+        choiceModal.querySelector('#chooseX').onclick = () => startGame('X');
+        choiceModal.querySelector('#chooseO').onclick = () => startGame('O');
+        choiceModal.querySelector('.close').onclick = () => choiceModal.remove();
+        choiceModal.onclick = (e) => { if (e.target === choiceModal) choiceModal.remove(); };
+      }
+    });
+
+    const searchBox = document.querySelector('.search-box');
+    if (searchBox) {
+      searchBox.addEventListener('click', (e) => {
+        if (e.target === searchBox || e.target === searchBox.querySelector('span')) {
+          const catDiv = document.createElement('div');
+          catDiv.style.position = 'fixed';
+          catDiv.style.bottom = '80px';
+          catDiv.style.right = '30px';
+          catDiv.style.backgroundColor = 'rgba(0,0,0,0.7)';
+          catDiv.style.color = '#ffcc00';
+          catDiv.style.padding = '10px 15px';
+          catDiv.style.borderRadius = '30px';
+          catDiv.style.fontSize = '1.2rem';
+          catDiv.style.zIndex = '10000';
+          catDiv.style.cursor = 'pointer';
+          catDiv.innerHTML = '🐱 Мяу! Привет!';
+          document.body.appendChild(catDiv);
+          catDiv.onclick = () => catDiv.remove();
+          setTimeout(() => { if (catDiv.parentNode) catDiv.remove(); }, 3000);
+        }
+      });
+    }
+
+    searchInput.addEventListener('input', function() {
+      if (searchInput.value.trim().toLowerCase() === 'meow') {
+        searchInput.value = '';
+        try {
+          const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          const oscillator = audioCtx.createOscillator();
+          const gainNode = audioCtx.createGain();
+          oscillator.connect(gainNode);
+          gainNode.connect(audioCtx.destination);
+          oscillator.frequency.value = 880;
+          gainNode.gain.value = 0.15;
+          oscillator.start();
+          gainNode.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.5);
+          oscillator.stop(audioCtx.currentTime + 0.5);
+        } catch(e) { console.log('audio not supported'); }
+        showToastMessage('🐱 Мяу! Секретный звук!');
+      }
+    });
+
+    // ============================================================
+    // ИНСТРУКЦИЯ
+    // ============================================================
+    const infoBtn = document.getElementById('infoPanelBtn');
+    const infoAccordion = document.getElementById('infoAccordion');
+    if (infoBtn && infoAccordion) {
+      const newBtn = infoBtn.cloneNode(true);
+      infoBtn.parentNode.replaceChild(newBtn, infoBtn);
+      newBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = infoAccordion.classList.toggle('open');
+        this.innerHTML = isOpen ? '✨ Скрыть инструкцию' : '✨ Инструкция';
+      });
+    }
+
+    // ============================================================
+    // ДОБАВИТЬ ШАБЛОН
+    // ============================================================
+    const addTemplateBtn = document.getElementById('addTemplateBtn');
+    const addTemplateModal = document.getElementById('addTemplateModal');
+    const addTemplateModalClose = document.getElementById('addTemplateModalClose');
+    const addTemplateForm = document.getElementById('addTemplateForm');
+    const atSubmitBtn = document.getElementById('atSubmitBtn');
+    const addTemplateResult = document.getElementById('addTemplateResult');
+
+    addTemplateBtn.addEventListener('click', () => {
+      addTemplateForm.reset();
+      ['atStageGroup','atRegionGroup','atAuthorGroup','atTopicGroup','atTextGroup'].forEach(id => document.getElementById(id).classList.remove('error'));
+      addTemplateResult.innerHTML = '';
+      addTemplateModal.style.display = 'flex';
+    });
+    addTemplateModalClose.onclick = () => addTemplateModal.style.display = 'none';
+    addTemplateModal.onclick = (e) => { if (e.target === addTemplateModal) addTemplateModal.style.display = 'none'; };
+
+    function validateSelect(field, group) {
+      if (!field.value) { group.classList.add('error'); return false; }
+      group.classList.remove('error'); return true;
+    }
+    function validateText(field, group) {
+      if (!field.value.trim()) { group.classList.add('error'); return false; }
+      group.classList.remove('error'); return true;
+    }
+
+    addTemplateForm.onsubmit = function(e) {
+      e.preventDefault();
+      if (!TEMPLATES_API_URL || TEMPLATES_API_URL.indexOf('ВСТАВЬТЕ') === 0) {
+        addTemplateResult.innerHTML = '<p style="color:var(--primary-red);">⚠️ Общее хранилище ещё не настроено. Обратитесь к администратору инструмента.</p>';
+        return;
+      }
+      const stageEl = document.getElementById('atStage');
+      const regionEl = document.getElementById('atRegion');
+      const authorEl = document.getElementById('atAuthor');
+      const topicEl = document.getElementById('atTopic');
+      const textEl = document.getElementById('atText');
+
+      const ok1 = validateSelect(stageEl, document.getElementById('atStageGroup'));
+      const ok2 = validateSelect(regionEl, document.getElementById('atRegionGroup'));
+      const ok3 = validateText(authorEl, document.getElementById('atAuthorGroup'));
+      const ok4 = validateText(topicEl, document.getElementById('atTopicGroup'));
+      const ok5 = validateText(textEl, document.getElementById('atTextGroup'));
+      if (!ok1 || !ok2 || !ok3 || !ok4 || !ok5) return;
+
+      atSubmitBtn.disabled = true;
+      const nowStr = new Date().toLocaleString('ru-RU');
+      const payload = {
+        recordType: 'new_topic',
+        stage: stageEl.value,
+        region: regionEl.value,
+        author: authorEl.value.trim(),
+        topic: topicEl.value.trim(),
+        text: textEl.value,
+        date: nowStr
+      };
+
+      sendToCloud(payload).then(() => {
+        cloudCustomTopics.push({
+          stage: payload.stage, region: payload.region, name: payload.topic,
+          text: payload.text, author: payload.author, date: payload.date
+        });
+        addTemplateResult.innerHTML = '<p style="color:green;">✅ Шаблон добавлен и виден всем сотрудникам!</p>';
+        renderStages();
+        setTimeout(() => { addTemplateModal.style.display = 'none'; addTemplateResult.innerHTML=''; atSubmitBtn.disabled = false; }, 1500);
+      }).catch(() => {
+        addTemplateResult.innerHTML = '<p style="color:var(--primary-red);">⚠️ Не удалось сохранить. Проверьте соединение и попробуйте ещё раз.</p>';
+        atSubmitBtn.disabled = false;
+      });
+    };
+
+    // ============================================================
+    // РЕДАКТИРОВАТЬ ШАБЛОН
+    // ============================================================
+    const editTemplateModal = document.getElementById('editTemplateModal');
+    const editTemplateModalClose = document.getElementById('editTemplateModalClose');
+    const editTemplateForm = document.getElementById('editTemplateForm');
+    const etSubmitBtn = document.getElementById('etSubmitBtn');
+    const editTemplateResult = document.getElementById('editTemplateResult');
+    let editContext = null; // { stage, topicName, variantIndex, region }
+
+    function openEditModal(topic, variantIndex, currentText) {
+      editContext = { stage: currentStage, topicName: topic.name, variantIndex: variantIndex, region: currentRegion };
+      document.getElementById('etAuthor').value = '';
+      document.getElementById('etText').value = currentText;
+      ['etAuthorGroup','etTextGroup'].forEach(id => document.getElementById(id).classList.remove('error'));
+      editTemplateResult.innerHTML = '';
+      editTemplateModal.style.display = 'flex';
+    }
+    editTemplateModalClose.onclick = () => editTemplateModal.style.display = 'none';
+    editTemplateModal.onclick = (e) => { if (e.target === editTemplateModal) editTemplateModal.style.display = 'none'; };
+
+    editTemplateForm.onsubmit = function(e) {
+      e.preventDefault();
+      if (!TEMPLATES_API_URL || TEMPLATES_API_URL.indexOf('ВСТАВЬТЕ') === 0) {
+        editTemplateResult.innerHTML = '<p style="color:var(--primary-red);">⚠️ Общее хранилище ещё не настроено. Обратитесь к администратору инструмента.</p>';
+        return;
+      }
+      const authorEl = document.getElementById('etAuthor');
+      const textEl = document.getElementById('etText');
+      const ok1 = validateText(authorEl, document.getElementById('etAuthorGroup'));
+      const ok2 = validateText(textEl, document.getElementById('etTextGroup'));
+      if (!ok1 || !ok2) return;
+
+      etSubmitBtn.disabled = true;
+      const nowStr = new Date().toLocaleString('ru-RU');
+      const payload = {
+        recordType: 'edit',
+        stage: editContext.stage,
+        topic: editContext.topicName,
+        variantIndex: editContext.variantIndex,
+        region: editContext.region,
+        author: authorEl.value.trim(),
+        text: textEl.value,
+        date: nowStr
+      };
+
+      sendToCloud(payload).then(() => {
+        cloudEdits[editKey(payload.stage, payload.topic, payload.variantIndex, payload.region)] = payload;
+        editTemplateResult.innerHTML = '<p style="color:green;">✅ Изменения сохранены и видны всем сотрудникам!</p>';
+        renderTemplates();
+        setTimeout(() => { editTemplateModal.style.display = 'none'; editTemplateResult.innerHTML=''; etSubmitBtn.disabled = false; }, 1500);
+      }).catch(() => {
+        editTemplateResult.innerHTML = '<p style="color:var(--primary-red);">⚠️ Не удалось сохранить. Проверьте соединение и попробуйте ещё раз.</p>';
+        etSubmitBtn.disabled = false;
+      });
+    };
+
+    // ============================================================
+    // УДАЛИТЬ ТЕМУ
+    // ============================================================
+    const deleteTemplateModal = document.getElementById('deleteTemplateModal');
+    const deleteTemplateModalClose = document.getElementById('deleteTemplateModalClose');
+    const deleteTemplateForm = document.getElementById('deleteTemplateForm');
+    const dtSubmitBtn = document.getElementById('dtSubmitBtn');
+    const deleteTemplateResult = document.getElementById('deleteTemplateResult');
+    let deleteContext = null; // { stage, topicName, region }
+
+    function openDeleteModal(topic) {
+      deleteContext = { stage: currentStage, topicName: topic.name, region: currentRegion };
+      document.getElementById('dtAuthor').value = '';
+      document.getElementById('dtAuthorGroup').classList.remove('error');
+      deleteTemplateResult.innerHTML = '';
+      deleteTemplateModal.style.display = 'flex';
+    }
+    deleteTemplateModalClose.onclick = () => deleteTemplateModal.style.display = 'none';
+    deleteTemplateModal.onclick = (e) => { if (e.target === deleteTemplateModal) deleteTemplateModal.style.display = 'none'; };
+
+    deleteTemplateForm.onsubmit = function(e) {
+      e.preventDefault();
+      if (!TEMPLATES_API_URL || TEMPLATES_API_URL.indexOf('ВСТАВЬТЕ') === 0) {
+        deleteTemplateResult.innerHTML = '<p style="color:var(--primary-red);">⚠️ Общее хранилище ещё не настроено. Обратитесь к администратору инструмента.</p>';
+        return;
+      }
+      const authorEl = document.getElementById('dtAuthor');
+      const ok = validateText(authorEl, document.getElementById('dtAuthorGroup'));
+      if (!ok) return;
+
+      dtSubmitBtn.disabled = true;
+      const nowStr = new Date().toLocaleString('ru-RU');
+      const payload = {
+        recordType: 'delete_topic',
+        stage: deleteContext.stage,
+        topic: deleteContext.topicName,
+        region: deleteContext.region,
+        author: authorEl.value.trim(),
+        date: nowStr
+      };
+
+      sendToCloud(payload).then(() => {
+        cloudDeletedTopics.add(deleteTopicKey(payload.stage, payload.topic, payload.region));
+        deleteTemplateResult.innerHTML = '<p style="color:green;">✅ Тема удалена у всех сотрудников.</p>';
+        currentTopicIndex = 0;
+        currentVariantIndex = 0;
+        renderTopics();
+        setTimeout(() => { deleteTemplateModal.style.display = 'none'; deleteTemplateResult.innerHTML=''; dtSubmitBtn.disabled = false; }, 1500);
+      }).catch(() => {
+        deleteTemplateResult.innerHTML = '<p style="color:var(--primary-red);">⚠️ Не удалось сохранить. Проверьте соединение и попробуйте ещё раз.</p>';
+        dtSubmitBtn.disabled = false;
+      });
+    };
+
+    // ============================================================
+    // ДОБАВИТЬ РЕГИОН
+    // ============================================================
+    const addRegionBtn = document.getElementById('addRegionBtn');
+    const addRegionModal = document.getElementById('addRegionModal');
+    const addRegionModalClose = document.getElementById('addRegionModalClose');
+    const addRegionForm = document.getElementById('addRegionForm');
+    const arSubmitBtn = document.getElementById('arSubmitBtn');
+    const addRegionResult = document.getElementById('addRegionResult');
+
+    addRegionBtn.addEventListener('click', () => {
+      addRegionForm.reset();
+      ['arNameGroup','arCodeGroup','arAuthorGroup'].forEach(id => document.getElementById(id).classList.remove('error'));
+      addRegionResult.innerHTML = '';
+      addRegionModal.style.display = 'flex';
+    });
+    addRegionModalClose.onclick = () => addRegionModal.style.display = 'none';
+    addRegionModal.onclick = (e) => { if (e.target === addRegionModal) addRegionModal.style.display = 'none'; };
+
+    addRegionForm.onsubmit = function(e) {
+      e.preventDefault();
+      if (!TEMPLATES_API_URL || TEMPLATES_API_URL.indexOf('ВСТАВЬТЕ') === 0) {
+        addRegionResult.innerHTML = '<p style="color:var(--primary-red);">⚠️ Общее хранилище ещё не настроено. Обратитесь к администратору инструмента.</p>';
+        return;
+      }
+      const nameEl = document.getElementById('arName');
+      const codeEl = document.getElementById('arCode');
+      const authorEl = document.getElementById('arAuthor');
+      const ok1 = validateText(nameEl, document.getElementById('arNameGroup'));
+      let codeVal = codeEl.value.trim().toLowerCase().replace(/[^a-z0-9]/g, '');
+      const ok2 = codeVal.length > 0;
+      document.getElementById('arCodeGroup').classList.toggle('error', !ok2);
+      const ok3 = validateText(authorEl, document.getElementById('arAuthorGroup'));
+      if (!ok1 || !ok2 || !ok3) return;
+
+      if (dropdownMenu.querySelector(`[data-value="${codeVal}"]`)) {
+        addRegionResult.innerHTML = '<p style="color:var(--primary-red);">⚠️ Регион с таким кодом уже существует, выберите другой код.</p>';
+        return;
+      }
+
+      arSubmitBtn.disabled = true;
+      const nowStr = new Date().toLocaleString('ru-RU');
+      const payload = {
+        recordType: 'new_region',
+        code: codeVal,
+        name: nameEl.value.trim(),
+        author: authorEl.value.trim(),
+        date: nowStr
+      };
+
+      sendToCloud(payload).then(() => {
+        cloudRegions.push(payload);
+        renderDynamicRegions();
+        addRegionResult.innerHTML = '<p style="color:green;">✅ Регион добавлен и доступен всем сотрудникам!</p>';
+        setTimeout(() => { addRegionModal.style.display = 'none'; addRegionResult.innerHTML=''; arSubmitBtn.disabled = false; }, 1500);
+      }).catch(() => {
+        addRegionResult.innerHTML = '<p style="color:var(--primary-red);">⚠️ Не удалось сохранить. Проверьте соединение и попробуйте ещё раз.</p>';
+        arSubmitBtn.disabled = false;
+      });
+    };
+
+    // ============================================================
+    // ОБРАТНАЯ СВЯЗЬ (все поля обязательные)
+    // ============================================================
+    const fbBtn = document.getElementById('feedbackButton');
+    const fbModal = document.getElementById('feedbackModal');
+    const closeFb = document.getElementById('closeFeedbackModal');
+    const fbForm = document.getElementById('feedbackForm');
+    const fbRes = document.getElementById('feedbackResult');
+    const likeTextarea = document.getElementById('like');
+    const dislikeTextarea = document.getElementById('dislike');
+    const likeGroup = document.getElementById('likeGroup');
+    const dislikeGroup = document.getElementById('dislikeGroup');
+    const suggestionTextarea = document.getElementById('suggestion');
+    const suggestionGroup = document.getElementById('suggestionGroup');
+
+    function validateRequired(field, group) {
+      if (!field.value.trim()) {
+        group.classList.add('error');
+        group.querySelector('.error-message').style.display = 'block';
+        return false;
+      } else {
+        group.classList.remove('error');
+        group.querySelector('.error-message').style.display = 'none';
+        return true;
+      }
+    }
+
+    fbBtn.onclick = () => fbModal.style.display = 'flex';
+    closeFb.onclick = () => fbModal.style.display = 'none';
+    fbModal.onclick = (e) => { if (e.target === fbModal) fbModal.style.display = 'none'; };
+
+    fbForm.onsubmit = function(e) {
+      e.preventDefault();
+
+      // Валидация всех полей
+      const fio = document.getElementById('fio');
+      const fioGroup = fio.closest('.feedback-form-group');
+      const isFioValid = validateRequired(fio, fioGroup);
+      const isLikeValid = validateRequired(likeTextarea, likeGroup);
+      const isDislikeValid = validateRequired(dislikeTextarea, dislikeGroup);
+      const isSuggestionValid = validateRequired(suggestionTextarea, suggestionGroup);
+
+      if (!isFioValid || !isLikeValid || !isDislikeValid || !isSuggestionValid) {
+        return;
+      }
+
+      const formData = {
+        fio: fio.value.trim(),
+        like: likeTextarea.value.trim(),
+        dislike: dislikeTextarea.value.trim(),
+        suggestion: suggestionTextarea.value.trim()
+      };
+
+      console.log('📤 Отправка отзыва:', formData);
+      console.log('🔑 ID полей:', { fio: FORM_ENTRY_FIO, like: FORM_ENTRY_LIKE, dislike: FORM_ENTRY_DISLIKE, suggestion: FORM_ENTRY_SUGGESTION });
+
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = FORM_ACTION_URL;
+      form.target = 'hiddenFrame';
+      form.style.display = 'none';
+
+      const addField = (name, value) => {
+        const inp = document.createElement('input');
+        inp.type = 'hidden';
+        inp.name = name;
+        inp.value = value;
+        form.appendChild(inp);
+      };
+      addField(FORM_ENTRY_FIO, formData.fio);
+      addField(FORM_ENTRY_LIKE, formData.like);
+      addField(FORM_ENTRY_DISLIKE, formData.dislike);
+      addField(FORM_ENTRY_SUGGESTION, formData.suggestion);
+      document.body.appendChild(form);
+
+      const iframe = document.getElementById('hiddenFrame');
+      let iframeLoaded = false;
+      iframe.onload = function() {
+        iframeLoaded = true;
+        fbRes.innerHTML = '<p style="color:green;">✅ Спасибо! Ваш отзыв отправлен.</p>';
+        fbForm.reset();
+        setTimeout(() => {
+          fbModal.style.display = 'none';
+          fbRes.innerHTML = '';
+          document.body.removeChild(form);
+          iframe.onload = null;
+        }, 3000);
+      };
+      form.submit();
+
+      setTimeout(() => {
+        if (!iframeLoaded && fbRes.innerHTML === '') {
+          const url = FORM_ACTION_URL;
+          const params = new URLSearchParams();
+          params.append(FORM_ENTRY_FIO, formData.fio);
+          params.append(FORM_ENTRY_LIKE, formData.like);
+          params.append(FORM_ENTRY_DISLIKE, formData.dislike);
+          params.append(FORM_ENTRY_SUGGESTION, formData.suggestion);
+          fetch(url, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: params.toString()
+          }).then(() => {
+            fbRes.innerHTML = '<p style="color:green;">✅ Спасибо! Ваш отзыв отправлен (альтернативный способ).</p>';
+            fbForm.reset();
+            setTimeout(() => {
+              fbModal.style.display = 'none';
+              fbRes.innerHTML = '';
+              if (form.parentNode) document.body.removeChild(form);
+            }, 3000);
+          }).catch(err => {
+            console.warn('Ошибка при отправке через fetch:', err);
+            fbRes.innerHTML = '<p style="color:orange;">⚠️ Отзыв не удалось отправить. Попробуйте позже или свяжитесь с поддержкой.</p>';
+          });
+        }
+      }, 5000);
+    };
+
+    searchInput.oninput = () => {
+      currentTopicIndex = 0;
+      currentVariantIndex = 0;
+      renderTopics();
+      renderTemplates();
+    };
+
+    // ========== Инициализация ==========
+    if (!localStorage.getItem('app_theme')) localStorage.setItem('app_theme', 'auto');
+    bindSettings();
+    applySettings();
+    renderStages();
+    loadCloudData();
+    document.getElementById('lastUpdated').textContent = `Обновлено: ${LAST_UPDATED}`;
+  </script>
+</body>
+</html>
