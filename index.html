@@ -1478,12 +1478,11 @@ let faqQuill = null;
     function editKey(stage, topicName, variantIndex, region) {
       return `${stage}|||${topicName}|||${variantIndex}|||${region || ''}`;
     }
-    function deleteTopicKey(stage, topicName, region) {
-      return `${stage}|||${topicName}|||${region || ''}`;
+    function deleteTopicKey(stage, topicName, region, parentId) {
+      return `${stage}|||${topicName}|||${region || ''}|||${parentId || ''}`;
     }
-    function isTopicDeleted(stage, topicName, region) {
-      return cloudDeletedTopics.has(deleteTopicKey(stage, topicName, region)) ||
-             cloudDeletedTopics.has(deleteTopicKey(stage, topicName, ''));
+    function isTopicDeleted(stage, topicName, region, parentId) {
+      return cloudDeletedTopics.has(deleteTopicKey(stage, topicName, region, parentId));
     }
 
     async function loadCloudData() {
@@ -1496,7 +1495,7 @@ let faqQuill = null;
         (data.edits || []).forEach(e => {
           cloudEdits[editKey(e.stage, e.topic, e.variantIndex, e.region)] = e;
         });
-        cloudDeletedTopics = new Set((data.deletedTopics || []).map(d => deleteTopicKey(d.stage, d.topic, d.region)));
+        cloudDeletedTopics = new Set((data.deletedTopics || []).map(d => deleteTopicKey(d.stage, d.topic, d.region, d.parentId)));
         cloudRegions = (data.regions || []);
         cloudFaq = (data.faq || []);
         renderDynamicRegions();
@@ -1552,7 +1551,7 @@ let faqQuill = null;
       return cloudCustomTopics
         .filter(t => t.stage === stage)
         .filter(t => !t.region || t.region === 'all' || t.region === currentRegion)
-        .filter(t => !isTopicDeleted(stage, t.name, t.region))
+        .filter(t => !isTopicDeleted(stage, t.name, t.region, t.parentId))
         .map(t => ({
           name: t.name,
           parentId: t.parentId || '',
@@ -1570,7 +1569,7 @@ let faqQuill = null;
       let filtered = topics.filter(t => {
         if (t.region && t.region !== currentRegion) return false;
         if (t.name === 'Акции файл' && !currentRegion) return false;
-        if (isTopicDeleted(currentStage, t.name, currentRegion)) return false;
+        if (isTopicDeleted(currentStage, t.name, currentRegion, '')) return false;
         return true;
       });
       return filtered.concat(getCustomTopicsForStage(currentStage));
@@ -3052,7 +3051,7 @@ initFaqEditor();
     let deleteContext = null; // { stage, topicName, region }
 
     function openDeleteModal(topic) {
-      deleteContext = { stage: currentStage, topicName: topic.name, region: currentRegion };
+      deleteContext = { stage: currentStage, topicName: topic.name, region: currentRegion, parentId: topic.parentId || '' };
       document.getElementById('dtAuthor').value = '';
       document.getElementById('dtAuthorGroup').classList.remove('error');
       deleteTemplateResult.innerHTML = '';
@@ -3078,12 +3077,13 @@ initFaqEditor();
         stage: deleteContext.stage,
         topic: deleteContext.topicName,
         region: deleteContext.region,
+        parentId: deleteContext.parentId || '',
         author: authorEl.value.trim(),
         date: nowStr
       };
 
       sendToCloud(payload).then(() => {
-        cloudDeletedTopics.add(deleteTopicKey(payload.stage, payload.topic, payload.region));
+        cloudDeletedTopics.add(deleteTopicKey(payload.stage, payload.topic, payload.region, payload.parentId));
         deleteTemplateResult.innerHTML = '<p style="color:green;">✅ Тема удалена у всех сотрудников.</p>';
         currentTopicIndex = 0;
         currentVariantIndex = 0;
