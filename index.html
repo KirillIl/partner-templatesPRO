@@ -560,7 +560,201 @@
 
     .fade-container { opacity: 0; transform: translateY(8px); transition: opacity 0.25s ease, transform 0.2s ease; }
     .fade-container.active { opacity: 1; transform: translateY(0); }
+/* ============================================================
+   FAQ РЕГИОНА
+   ============================================================ */
+
+.faq-region-block {
+  display: flex;
+  align-items: center;
+  margin-left: 4px;
+}
+
+.faq-region-btn {
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.faq-region-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-color: var(--primary-violet);
+  color: var(--primary-violet);
+}
+
+.faq-modal-content {
+  max-width: 760px;
+  max-height: 90vh;
+}
+
+.faq-empty-state {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.faq-empty-icon {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.faq-empty-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.faq-empty-text {
+  color: var(--text-secondary);
+  margin-bottom: 22px;
+}
+
+.faq-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+}
+
+.faq-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.faq-manager {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.faq-date {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.faq-card-content {
+  color: var(--text);
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.faq-card-content p {
+  margin-top: 0;
+}
+
+.faq-card-content img {
+  max-width: 100%;
+}
+
+.faq-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.faq-action-btn {
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  padding: 7px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.faq-action-btn:hover {
+  border-color: var(--primary-violet);
+}
+
+.faq-delete-btn:hover {
+  color: var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+.faq-form-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+
+#faqEditor {
+  min-height: 220px;
+  background: var(--card-bg);
+}
+
+#faqEditor .ql-editor {
+  min-height: 180px;
+  font-size: 15px;
+}
+
+.faq-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.faq-cancel-btn {
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.faq-cancel-btn:hover {
+  border-color: var(--primary-violet);
+}
+
+@media (max-width: 700px) {
+
+  .faq-region-block {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .faq-region-btn {
+    width: 100%;
+  }
+
+  .faq-modal-content {
+    max-width: calc(100vw - 20px);
+  }
+
+  .faq-card-header {
+    flex-direction: column;
+  }
+
+  .faq-form-actions {
+    flex-direction: column;
+  }
+
+  .faq-form-actions button {
+    width: 100%;
+  }
+}
   </style>
+<!-- ===== РЕДАКТОР FAQ ===== -->
+<link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
 </head>
 <body>
   <!-- ===== ВЕРХНИЙ БЛОК ===== -->
@@ -641,6 +835,12 @@
         </div>
       </div>
       <div class="search-box"><span>🔍</span><input type="text" id="searchTopicsInput" placeholder="Поиск по названию или тексту шаблона..." /></div>
+<!-- ===== FAQ ТЕКУЩЕГО РЕГИОНА ===== -->
+<div id="faqRegionBlock" class="faq-region-block" style="display:none;">
+  <button type="button" id="faqRegionBtn" class="faq-region-btn">
+    ❓ FAQ региона
+  </button>
+</div>
     </div>
 
     <div class="topics-header">🗂 Этапы</div>
@@ -802,6 +1002,111 @@
     </div>
   </div>
 
+<!-- ===== FAQ РЕГИОНА ===== -->
+<div id="faqModal" class="modal-overlay" style="display:none;">
+  <div class="modal-content faq-modal-content">
+
+    <div class="modal-header">
+      <h2 id="faqModalTitle">❓ FAQ региона</h2>
+      <button class="modal-close" id="faqModalClose">✕</button>
+    </div>
+
+    <div class="modal-body">
+
+      <div id="faqEmptyState" class="faq-empty-state" style="display:none;">
+        <div class="faq-empty-icon">📚</div>
+        <div class="faq-empty-title">FAQ пока пуст</div>
+        <div class="faq-empty-text">
+          В этом регионе ещё нет сохранённых данных.
+        </div>
+
+        <button type="button" id="faqAddFirstBtn" class="form-submit-btn">
+          ➕ Внести данные
+        </button>
+      </div>
+
+      <div id="faqList"></div>
+
+      <div id="faqAddButtonWrap" style="display:none; margin-top:20px;">
+        <button type="button" id="faqAddBtn" class="form-submit-btn">
+          ➕ Внести данные
+        </button>
+      </div>
+
+      <!-- ===== ФОРМА FAQ ===== -->
+      <div id="faqFormWrap" style="display:none;">
+
+        <div class="faq-form-title" id="faqFormTitle">
+          Внести данные
+        </div>
+
+        <form id="faqForm">
+
+          <div class="form-group" id="faqManagerGroup">
+
+            <label>
+              ФИО менеджера
+              <span class="required-star">*</span>
+            </label>
+
+            <input
+              type="text"
+              id="faqManagerFio"
+              placeholder="Иванов Иван Иванович"
+            />
+
+            <div class="form-error">
+              Заполните ФИО менеджера
+            </div>
+
+          </div>
+
+
+          <div class="form-group" id="faqContentGroup">
+
+            <label>
+              Данные FAQ
+              <span class="required-star">*</span>
+            </label>
+
+            <div id="faqEditor"></div>
+
+            <div class="form-error">
+              Заполните данные FAQ
+            </div>
+
+          </div>
+
+
+          <div class="faq-form-actions">
+
+            <button
+              type="button"
+              id="faqCancelBtn"
+              class="faq-cancel-btn"
+            >
+              Отмена
+            </button>
+
+            <button
+              type="submit"
+              id="faqSaveBtn"
+              class="form-submit-btn"
+            >
+              Сохранить
+            </button>
+
+          </div>
+
+        </form>
+
+        <div id="faqFormResult"></div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
   <!-- ===== ОПРОСНИК ===== -->
   <button id="feedbackButton" style="position:fixed; bottom:24px; right:24px; background:var(--primary-violet); color:white; border:none; border-radius:50px; padding:12px 20px; cursor:pointer; z-index:1000; display:flex; align-items:center; gap:6px;">💬 Оставить отзыв</button>
 
@@ -858,11 +1163,8 @@
 
     // ================================================================
     // 2.1 ОБЩЕЕ ХРАНИЛИЩЕ ШАБЛОНОВ (Google Apps Script Web App)
-    // Замените строку ниже на URL вашего развернутого веб-приложения
-    // (см. инструкцию по настройке). Пока URL не указан, кнопки
-    // "Добавить шаблон" / "Редактировать" будут показывать предупреждение.
     // ================================================================
-    const TEMPLATES_API_URL = 'ВСТАВЬТЕ_СЮДА_URL_ВАШЕГО_WEB_APP';
+    const TEMPLATES_API_URL = 'https://script.google.com/macros/s/AKfycbxB7yxRPphkO-hy_V4dN3oPyeY__wj_YwrvWKs35bVX2EjdafmjAfS-V2EpMq1jaEfF/exec';
     // ================================================================
 
     // ========== ССЫЛКИ ДЛЯ ТЕМЫ "Акции файл" ПО РЕГИОНАМ ==========
@@ -1122,11 +1424,11 @@
           ]
         },
         {
-          name: 'ЗС Самолёт. Постоплата.',
+          name: 'Постоплата.',
           templates: [
-            { text: `(Имя агента), также напоминаем, что с застройщиком «Самолет» мы перешли на постоплатную систему расчета. Как только получим подтверждение от застройщика о поступлении средств на наш счёт, мы обязательно сообщим вам и сразу отправим заявку на выплату.🤝`, usage: 0 },
-            { text: `(Имя агента), добрый день! 😊\nСейчас с застройщиком «Самолет» мы работаем по постоплате.\nЭто значит, что мы сможем выплатить вам комиссию после выплаты от застройщика. Это не быстрый процесс, у которого нет точных сроков. Понимаем, что ожидаете длительное время, и как только мы получим средства от застройщика, сразу вам выплатим комиссию.🤝`, usage: 0 },
-            { text: `(Имя агента), добрый день!\nВажный момент по выплате: с застройщиком «Самолет» мы работаем по постоплате. Выплата вашей комиссии произойдет после поступления средств от застройщика на наш расчетный счет.\n\nКак только деньги поступят от застройщика, мы сразу же переведем их вам и обязательно напишем об этом. \nСпасибо за отличную работу! 😊`, usage: 0 }
+            { text: `(Имя агента), также напоминаем, что с застройщиком «Наименование ЗС» мы перешли на постоплатную систему расчета. Как только получим подтверждение от застройщика о поступлении средств на наш счёт, мы обязательно сообщим вам и сразу отправим заявку на выплату.🤝`, usage: 0 },
+            { text: `(Имя агента), добрый день! 😊\nСейчас с застройщиком «Наименование ЗС» мы работаем по постоплате.\nЭто значит, что мы сможем выплатить вам комиссию после выплаты от застройщика. Это не быстрый процесс, у которого нет точных сроков. Понимаем, что ожидаете длительное время, и как только мы получим средства от застройщика, сразу вам выплатим комиссию.🤝`, usage: 0 },
+            { text: `(Имя агента), добрый день!\nВажный момент по выплате: с застройщиком «Наименование ЗС» мы работаем по постоплате. Выплата вашей комиссии произойдет после поступления средств от застройщика на наш расчетный счет.\n\nКак только деньги поступят от застройщика, мы сразу же переведем их вам и обязательно напишем об этом. \nСпасибо за отличную работу! 😊`, usage: 0 }
           ]
         },
         {
@@ -1156,10 +1458,22 @@
     let topAnEnabled = false;
 
     // ---- Общие (облачные) данные: новые темы, правки, удаления, регионы ----
-    let cloudCustomTopics = [];   // [{stage, region, name, text, author, date}]
+    let cloudCustomTopics = [];   // [{stage, region, name, parentId, templates:[...], author, date}]
     let cloudEdits = {};          // key -> {text, author, date}
     let cloudDeletedTopics = new Set(); // set of "stage|||topic|||region"
     let cloudRegions = [];        // [{code, name, author, date}]
+
+// ============================================================
+// FAQ — ОБЩИЕ ОБЛАЧНЫЕ ДАННЫЕ
+// ============================================================
+
+let cloudFaq = [];
+
+// Текущая редактируемая запись FAQ
+let faqEditId = null;
+
+// Редактор Quill
+let faqQuill = null;
 
     function editKey(stage, topicName, variantIndex, region) {
       return `${stage}|||${topicName}|||${variantIndex}|||${region || ''}`;
@@ -1173,9 +1487,9 @@
     }
 
     async function loadCloudData() {
-      if (!TEMPLATES_API_URL || TEMPLATES_API_URL.indexOf('ВСТАВЬТЕ') === 0) return;
+      if (!TEMPLATES_API_URL) return;
       try {
-        const res = await fetch(TEMPLATES_API_URL);
+        const res = await fetch(TEMPLATES_API_URL + '?t=' + Date.now());
         const data = await res.json();
         cloudCustomTopics = (data.newTopics || []);
         cloudEdits = {};
@@ -1184,6 +1498,7 @@
         });
         cloudDeletedTopics = new Set((data.deletedTopics || []).map(d => deleteTopicKey(d.stage, d.topic, d.region)));
         cloudRegions = (data.regions || []);
+        cloudFaq = (data.faq || []);
         renderDynamicRegions();
         renderStages();
       } catch (err) {
@@ -1240,7 +1555,10 @@
         .filter(t => !isTopicDeleted(stage, t.name, t.region))
         .map(t => ({
           name: t.name,
-          templates: [{ text: t.text, usage: 0 }],
+          parentId: t.parentId || '',
+          templates: Array.isArray(t.templates) && t.templates.length
+            ? t.templates
+            : [{ text: t.text || '', usage: 0 }],
           isCustom: true,
           author: t.author,
           date: t.date
@@ -1445,7 +1763,7 @@
       const eKey = editKey(currentStage, topic.name, currentVariantIndex, currentRegion);
       const edit = cloudEdits[eKey] || cloudEdits[editKey(currentStage, topic.name, currentVariantIndex, '')];
       let metaHtml = '';
-      if (edit && !topic.isCustom) {
+      if (edit) {
         displayText = edit.text;
         metaHtml = `<div class="meta-info">✏️ Изменено: ${escapeHtml(edit.author || '')}, ${escapeHtml(edit.date || '')}</div>`;
       } else if (topic.isCustom) {
@@ -1541,6 +1859,825 @@
       return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     }
 
+// ============================================================
+// FAQ — ЛОГИКА
+// ============================================================
+
+const faqRegionBlock = document.getElementById('faqRegionBlock');
+const faqRegionBtn = document.getElementById('faqRegionBtn');
+
+const faqModal = document.getElementById('faqModal');
+const faqModalClose = document.getElementById('faqModalClose');
+
+const faqModalTitle = document.getElementById('faqModalTitle');
+
+const faqEmptyState = document.getElementById('faqEmptyState');
+const faqList = document.getElementById('faqList');
+
+const faqAddFirstBtn = document.getElementById('faqAddFirstBtn');
+const faqAddBtn = document.getElementById('faqAddBtn');
+const faqAddButtonWrap = document.getElementById('faqAddButtonWrap');
+
+const faqFormWrap = document.getElementById('faqFormWrap');
+const faqForm = document.getElementById('faqForm');
+
+const faqFormTitle = document.getElementById('faqFormTitle');
+
+const faqManagerFio = document.getElementById('faqManagerFio');
+const faqManagerGroup = document.getElementById('faqManagerGroup');
+
+const faqContentGroup = document.getElementById('faqContentGroup');
+
+const faqCancelBtn = document.getElementById('faqCancelBtn');
+
+const faqSaveBtn = document.getElementById('faqSaveBtn');
+
+const faqFormResult = document.getElementById('faqFormResult');
+
+
+// ------------------------------------------------------------
+// Название региона
+// ------------------------------------------------------------
+
+function getRegionNameByCode(code) {
+
+  const item = dropdownMenu.querySelector(
+    `.dropdown-item[data-value="${code}"]`
+  );
+
+  if (item) {
+    return item.textContent
+      .replace(/^🏙️\s*/, '')
+      .trim();
+  }
+
+  const region = cloudRegions.find(
+    r => r.code === code
+  );
+
+  if (region) {
+    return region.name;
+  }
+
+  const defaultNames = {
+    kzn: 'Казань',
+    msk: 'Москва',
+    ekb: 'Екатеринбург',
+    ufa: 'Уфа',
+    vrn: 'Воронеж',
+    ros: 'Ростов-на-Дону'
+  };
+
+  return defaultNames[code] || code;
+}
+
+
+// ------------------------------------------------------------
+// Показываем кнопку FAQ только после выбора региона
+// ------------------------------------------------------------
+
+function renderFaqRegionButton() {
+
+  if (!faqRegionBlock || !faqRegionBtn) {
+    return;
+  }
+
+  if (!currentRegion) {
+
+    faqRegionBlock.style.display = 'none';
+
+    return;
+  }
+
+  const regionName =
+    getRegionNameByCode(currentRegion);
+
+  faqRegionBtn.textContent =
+    `❓ FAQ ${regionName}`;
+
+  faqRegionBlock.style.display = 'flex';
+}
+
+
+// ------------------------------------------------------------
+// Получить FAQ только текущего региона
+// ------------------------------------------------------------
+
+function getCurrentRegionFaq() {
+
+  if (!currentRegion) {
+    return [];
+  }
+
+  return cloudFaq.filter(item =>
+    String(item.region || '') ===
+    String(currentRegion)
+  );
+}
+
+
+// ------------------------------------------------------------
+// Открыть FAQ
+// ------------------------------------------------------------
+
+async function openFaqModal() {
+
+  if (!currentRegion) {
+    return;
+  }
+
+  try {
+
+    if (TEMPLATES_API_URL) {
+
+      const res =
+        await fetch(TEMPLATES_API_URL + '?t=' + Date.now());
+
+      const data =
+        await res.json();
+
+      cloudFaq =
+        data.faq || [];
+
+    }
+
+  } catch (err) {
+
+    console.warn(
+      'Не удалось обновить FAQ:',
+      err
+    );
+
+  }
+
+
+  const regionName =
+    getRegionNameByCode(currentRegion);
+
+  faqModalTitle.textContent =
+    `❓ FAQ ${regionName}`;
+
+  renderFaqList();
+
+  faqModal.style.display = 'flex';
+
+}
+
+
+// ------------------------------------------------------------
+// Закрыть FAQ
+// ------------------------------------------------------------
+
+function closeFaqModal() {
+
+  faqModal.style.display = 'none';
+
+  closeFaqForm();
+
+}
+
+
+// ------------------------------------------------------------
+// Показать список FAQ
+// ------------------------------------------------------------
+
+function renderFaqList() {
+
+  const items =
+    getCurrentRegionFaq();
+
+  faqList.innerHTML = '';
+
+  faqFormWrap.style.display = 'none';
+
+  faqFormResult.innerHTML = '';
+
+  faqAddButtonWrap.style.display =
+    items.length ? 'block' : 'none';
+
+  faqEmptyState.style.display =
+    items.length ? 'none' : 'block';
+
+
+  if (!items.length) {
+    return;
+  }
+
+
+  items.forEach(item => {
+
+    const card =
+      document.createElement('div');
+
+    card.className = 'faq-card';
+
+
+    const header =
+      document.createElement('div');
+
+    header.className =
+      'faq-card-header';
+
+
+    const managerBlock =
+      document.createElement('div');
+
+
+    const manager =
+      document.createElement('div');
+
+    manager.className =
+      'faq-manager';
+
+    manager.textContent =
+      item.managerFio || 'Менеджер';
+
+
+    const date =
+      document.createElement('div');
+
+    date.className =
+      'faq-date';
+
+    date.textContent =
+      item.updatedAt
+        ? `Обновлено: ${formatFaqDate(item.updatedAt)}`
+        : '';
+
+
+    managerBlock.appendChild(manager);
+    managerBlock.appendChild(date);
+
+
+    header.appendChild(managerBlock);
+
+
+    const content =
+      document.createElement('div');
+
+    content.className =
+      'faq-card-content';
+
+
+    const safeHtml =
+      window.DOMPurify
+        ? DOMPurify.sanitize(item.contentHtml || '')
+        : escapeHtml(item.contentHtml || '');
+
+    content.innerHTML =
+      safeHtml;
+
+
+    const actions =
+      document.createElement('div');
+
+    actions.className =
+      'faq-card-actions';
+
+
+    const editBtn =
+      document.createElement('button');
+
+    editBtn.type = 'button';
+
+    editBtn.className =
+      'faq-action-btn';
+
+    editBtn.textContent =
+      '✏️ Редактировать';
+
+    editBtn.addEventListener(
+      'click',
+      () => openFaqEditForm(item)
+    );
+
+
+    const deleteBtn =
+      document.createElement('button');
+
+    deleteBtn.type = 'button';
+
+    deleteBtn.className =
+      'faq-action-btn faq-delete-btn';
+
+    deleteBtn.textContent =
+      '🗑 Удалить';
+
+    deleteBtn.addEventListener(
+      'click',
+      () => deleteFaqItem(item)
+    );
+
+
+    actions.appendChild(editBtn);
+    actions.appendChild(deleteBtn);
+
+
+    card.appendChild(header);
+    card.appendChild(content);
+    card.appendChild(actions);
+
+    faqList.appendChild(card);
+
+  });
+
+}
+
+
+// ------------------------------------------------------------
+// Форматирование даты
+// ------------------------------------------------------------
+
+function formatFaqDate(value) {
+
+  if (!value) {
+    return '';
+  }
+
+  try {
+
+    const date =
+      new Date(value);
+
+    if (!isNaN(date.getTime())) {
+
+      return date.toLocaleString(
+        'ru-RU'
+      );
+
+    }
+
+  } catch (err) {}
+
+  return String(value);
+
+}
+
+
+// ------------------------------------------------------------
+// Открыть форму создания
+// ------------------------------------------------------------
+
+function openFaqCreateForm() {
+
+  faqEditId = null;
+
+  faqFormTitle.textContent =
+    'Внести данные';
+
+  faqManagerFio.value = '';
+
+  faqFormResult.innerHTML = '';
+
+  faqManagerGroup.classList.remove('error');
+  faqContentGroup.classList.remove('error');
+
+  if (faqQuill) {
+    faqQuill.root.innerHTML = '';
+  }
+
+  faqFormWrap.style.display =
+    'block';
+
+  faqAddButtonWrap.style.display =
+    'none';
+
+  faqEmptyState.style.display =
+    'none';
+
+  setTimeout(() => {
+
+    faqManagerFio.focus();
+
+  }, 50);
+
+}
+
+
+// ------------------------------------------------------------
+// Открыть форму редактирования
+// ------------------------------------------------------------
+
+function openFaqEditForm(item) {
+
+  faqEditId =
+    item.faqId;
+
+  faqFormTitle.textContent =
+    'Редактировать данные';
+
+  faqManagerFio.value =
+    item.managerFio || '';
+
+  faqFormResult.innerHTML = '';
+
+  faqManagerGroup.classList.remove('error');
+  faqContentGroup.classList.remove('error');
+
+  if (faqQuill) {
+
+    faqQuill.root.innerHTML =
+      item.contentHtml || '';
+
+  }
+
+  faqFormWrap.style.display =
+    'block';
+
+  faqAddButtonWrap.style.display =
+    'none';
+
+  faqEmptyState.style.display =
+    'none';
+
+  faqFormWrap.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+
+}
+
+
+// ------------------------------------------------------------
+// Закрыть форму
+// ------------------------------------------------------------
+
+function closeFaqForm() {
+
+  faqEditId = null;
+
+  faqFormWrap.style.display =
+    'none';
+
+  faqFormResult.innerHTML = '';
+
+}
+
+
+// ------------------------------------------------------------
+// Инициализация редактора
+// ------------------------------------------------------------
+
+function initFaqEditor() {
+
+  if (typeof Quill === 'undefined') {
+
+    console.error(
+      'Quill не загрузился.'
+    );
+
+    return;
+
+  }
+
+  faqQuill =
+    new Quill('#faqEditor', {
+
+      theme: 'snow',
+
+      modules: {
+
+        toolbar: [
+
+          [
+            'bold',
+            'italic',
+            'underline'
+          ],
+
+          [
+            {
+              font: []
+            }
+          ],
+
+          [
+            {
+              size: [
+                'small',
+                false,
+                'large',
+                'huge'
+              ]
+            }
+          ],
+
+          [
+            {
+              color: []
+            }
+          ],
+
+          [
+            {
+              background: []
+            }
+          ],
+
+          [
+            {
+              align: []
+            }
+          ],
+
+          [
+            'clean'
+          ]
+
+        ]
+
+      }
+
+    });
+
+}
+
+
+// ------------------------------------------------------------
+// Получить HTML из редактора
+// ------------------------------------------------------------
+
+function getFaqEditorHtml() {
+
+  if (!faqQuill) {
+    return '';
+  }
+
+  const html =
+    faqQuill.root.innerHTML.trim();
+
+  if (
+    html === '<p><br></p>' ||
+    html === '<p></p>'
+  ) {
+    return '';
+  }
+
+  return window.DOMPurify
+    ? DOMPurify.sanitize(html)
+    : html;
+
+}
+
+
+// ------------------------------------------------------------
+// Сохранение FAQ
+// ------------------------------------------------------------
+
+faqForm.addEventListener(
+  'submit',
+  async function(e) {
+
+    e.preventDefault();
+
+    if (!TEMPLATES_API_URL) {
+
+      faqFormResult.innerHTML =
+        '<p style="color:var(--primary-red);">⚠️ Общее хранилище не настроено.</p>';
+
+      return;
+
+    }
+
+
+    const manager =
+      faqManagerFio.value.trim();
+
+    const contentHtml =
+      getFaqEditorHtml();
+
+
+    const validManager =
+      !!manager;
+
+    const validContent =
+      !!contentHtml;
+
+
+    faqManagerGroup.classList.toggle(
+      'error',
+      !validManager
+    );
+
+    faqContentGroup.classList.toggle(
+      'error',
+      !validContent
+    );
+
+
+    if (!validManager || !validContent) {
+      return;
+    }
+
+
+    faqSaveBtn.disabled = true;
+
+    faqFormResult.innerHTML =
+      '<p>⏳ Сохраняем...</p>';
+
+
+    const nowStr =
+      new Date().toISOString();
+
+
+    const payload = {
+
+      recordType:
+        faqEditId
+          ? 'faq_edit'
+          : 'faq_create',
+
+      faqId:
+        faqEditId || '',
+
+      region:
+        currentRegion,
+
+      managerFio:
+        manager,
+
+      contentHtml:
+        contentHtml,
+
+      date:
+        nowStr
+
+    };
+
+
+    try {
+
+      await sendToCloud(payload);
+
+
+      const res =
+        await fetch(TEMPLATES_API_URL + '?t=' + Date.now());
+
+      const data =
+        await res.json();
+
+      cloudFaq =
+        data.faq || [];
+
+
+      faqFormResult.innerHTML =
+        '<p style="color:green;">✅ Данные сохранены и видны всем сотрудникам этого региона.</p>';
+
+
+      setTimeout(() => {
+
+        faqFormWrap.style.display =
+          'none';
+
+        faqSaveBtn.disabled =
+          false;
+
+        faqFormResult.innerHTML =
+          '';
+
+        renderFaqList();
+
+      }, 1000);
+
+
+    } catch (err) {
+
+      console.error(
+        'Ошибка сохранения FAQ:',
+        err
+      );
+
+      faqFormResult.innerHTML =
+        '<p style="color:var(--primary-red);">⚠️ Не удалось сохранить данные. Попробуйте ещё раз.</p>';
+
+      faqSaveBtn.disabled =
+        false;
+
+    }
+
+  }
+);
+
+
+// ------------------------------------------------------------
+// Удаление FAQ
+// ------------------------------------------------------------
+
+async function deleteFaqItem(item) {
+
+  const confirmed =
+    confirm(
+      `Удалить запись FAQ менеджера «${item.managerFio}»?`
+    );
+
+  if (!confirmed) {
+    return;
+  }
+
+
+  try {
+
+    await sendToCloud({
+
+      recordType:
+        'faq_delete',
+
+      faqId:
+        item.faqId,
+
+      region:
+        currentRegion,
+
+      date:
+        new Date().toISOString()
+
+    });
+
+
+    const res =
+      await fetch(TEMPLATES_API_URL + '?t=' + Date.now());
+
+    const data =
+      await res.json();
+
+    cloudFaq =
+      data.faq || [];
+
+
+    renderFaqList();
+
+    showToastMessage(
+      'Запись FAQ удалена'
+    );
+
+
+  } catch (err) {
+
+    console.error(
+      'Ошибка удаления FAQ:',
+      err
+    );
+
+    alert(
+      'Не удалось удалить запись FAQ. Попробуйте ещё раз.'
+    );
+
+  }
+
+}
+
+
+// ------------------------------------------------------------
+// Кнопки FAQ
+// ------------------------------------------------------------
+
+faqRegionBtn.addEventListener(
+  'click',
+  openFaqModal
+);
+
+faqModalClose.addEventListener(
+  'click',
+  closeFaqModal
+);
+
+faqModal.addEventListener(
+  'click',
+  function(e) {
+
+    if (e.target === faqModal) {
+      closeFaqModal();
+    }
+
+  }
+);
+
+
+faqAddBtn.addEventListener(
+  'click',
+  openFaqCreateForm
+);
+
+faqAddFirstBtn.addEventListener(
+  'click',
+  openFaqCreateForm
+);
+
+faqCancelBtn.addEventListener(
+  'click',
+  function() {
+
+    closeFaqForm();
+
+    renderFaqList();
+
+  }
+);
+
+
+// Инициализируем редактор после загрузки DOM
+initFaqEditor();
+
     // ---------- Выпадающий список ----------
     dropdownBtn.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -1552,28 +2689,32 @@
       dropdownBtn.classList.remove('open');
     });
 
+    function selectRegion(regionCode) {
+      const item = dropdownMenu.querySelector(`[data-value="${regionCode}"]`);
+      if (!item) return false;
+      currentRegion = regionCode;
+      selectedRegionSpan.textContent = item.textContent.trim();
+      dropdownMenu.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      if (currentRegion === 'ekb') {
+        topAnEnabled = true;
+      } else {
+        topAnEnabled = false;
+      }
+      return true;
+    }
+
     dropdownMenu.addEventListener('click', (e) => {
       const item = e.target.closest('.dropdown-item');
       if (!item) return;
-      const value = item.dataset.value;
-      const name = item.textContent.trim();
-      currentRegion = value;
-      selectedRegionSpan.textContent = name;
-      dropdownMenu.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
-      item.classList.add('active');
+      selectRegion(item.dataset.value);
       dropdownMenu.classList.remove('open');
       dropdownBtn.classList.remove('open');
-
-      if (currentRegion === 'ekb') {
-        topAnEnabled = true;
-        updateTopAnStatus();
-      } else {
-        topAnEnabled = false;
-        updateTopAnStatus();
-      }
+      updateTopAnStatus();
       currentTopicIndex = 0;
       currentVariantIndex = 0;
       renderTopics();
+      renderFaqRegionButton();
     });
 
     // ---------- Пасхалки ----------
@@ -1776,7 +2917,7 @@
 
     addTemplateForm.onsubmit = function(e) {
       e.preventDefault();
-      if (!TEMPLATES_API_URL || TEMPLATES_API_URL.indexOf('ВСТАВЬТЕ') === 0) {
+      if (!TEMPLATES_API_URL) {
         addTemplateResult.innerHTML = '<p style="color:var(--primary-red);">⚠️ Общее хранилище ещё не настроено. Обратитесь к администратору инструмента.</p>';
         return;
       }
@@ -1806,13 +2947,30 @@
       };
 
       sendToCloud(payload).then(() => {
-        cloudCustomTopics.push({
-          stage: payload.stage, region: payload.region, name: payload.topic,
-          text: payload.text, author: payload.author, date: payload.date
+        loadCloudData().then(() => {
+          // ---- ФИКС: переключаемся на этап и регион нового шаблона,
+          // чтобы он сразу стал виден на странице, а не только в таблице ----
+          currentStage = payload.stage;
+          if (payload.region && payload.region !== 'all') {
+            selectRegion(payload.region);
+            updateTopAnStatus();
+          }
+          currentTopicIndex = 0;
+          currentVariantIndex = 0;
+          renderStages();
+          renderFaqRegionButton();
+
+          const topicsNow = getFilteredTopics();
+          const idx = topicsNow.findIndex(t => t.isCustom && t.name === payload.topic);
+          if (idx > -1) {
+            currentTopicIndex = idx;
+            renderTopics();
+            renderTemplates();
+          }
+
+          addTemplateResult.innerHTML = '<p style="color:green;">✅ Шаблон добавлен (3 варианта) и открыт ниже.</p>';
+          setTimeout(() => { addTemplateModal.style.display = 'none'; addTemplateResult.innerHTML=''; atSubmitBtn.disabled = false; }, 1500);
         });
-        addTemplateResult.innerHTML = '<p style="color:green;">✅ Шаблон добавлен и виден всем сотрудникам!</p>';
-        renderStages();
-        setTimeout(() => { addTemplateModal.style.display = 'none'; addTemplateResult.innerHTML=''; atSubmitBtn.disabled = false; }, 1500);
       }).catch(() => {
         addTemplateResult.innerHTML = '<p style="color:var(--primary-red);">⚠️ Не удалось сохранить. Проверьте соединение и попробуйте ещё раз.</p>';
         atSubmitBtn.disabled = false;
@@ -1827,10 +2985,16 @@
     const editTemplateForm = document.getElementById('editTemplateForm');
     const etSubmitBtn = document.getElementById('etSubmitBtn');
     const editTemplateResult = document.getElementById('editTemplateResult');
-    let editContext = null; // { stage, topicName, variantIndex, region }
+    let editContext = null; // { stage, topicName, variantIndex, region, parentId }
 
     function openEditModal(topic, variantIndex, currentText) {
-      editContext = { stage: currentStage, topicName: topic.name, variantIndex: variantIndex, region: currentRegion };
+      editContext = {
+        stage: currentStage,
+        topicName: topic.name,
+        variantIndex: variantIndex,
+        region: currentRegion,
+        parentId: topic.parentId || ''
+      };
       document.getElementById('etAuthor').value = '';
       document.getElementById('etText').value = currentText;
       ['etAuthorGroup','etTextGroup'].forEach(id => document.getElementById(id).classList.remove('error'));
@@ -1842,7 +3006,7 @@
 
     editTemplateForm.onsubmit = function(e) {
       e.preventDefault();
-      if (!TEMPLATES_API_URL || TEMPLATES_API_URL.indexOf('ВСТАВЬТЕ') === 0) {
+      if (!TEMPLATES_API_URL) {
         editTemplateResult.innerHTML = '<p style="color:var(--primary-red);">⚠️ Общее хранилище ещё не настроено. Обратитесь к администратору инструмента.</p>';
         return;
       }
@@ -1860,6 +3024,7 @@
         topic: editContext.topicName,
         variantIndex: editContext.variantIndex,
         region: editContext.region,
+        parentId: editContext.parentId || '',
         author: authorEl.value.trim(),
         text: textEl.value,
         date: nowStr
@@ -1898,7 +3063,7 @@
 
     deleteTemplateForm.onsubmit = function(e) {
       e.preventDefault();
-      if (!TEMPLATES_API_URL || TEMPLATES_API_URL.indexOf('ВСТАВЬТЕ') === 0) {
+      if (!TEMPLATES_API_URL) {
         deleteTemplateResult.innerHTML = '<p style="color:var(--primary-red);">⚠️ Общее хранилище ещё не настроено. Обратитесь к администратору инструмента.</p>';
         return;
       }
@@ -1951,7 +3116,7 @@
 
     addRegionForm.onsubmit = function(e) {
       e.preventDefault();
-      if (!TEMPLATES_API_URL || TEMPLATES_API_URL.indexOf('ВСТАВЬТЕ') === 0) {
+      if (!TEMPLATES_API_URL) {
         addRegionResult.innerHTML = '<p style="color:var(--primary-red);">⚠️ Общее хранилище ещё не настроено. Обратитесь к администратору инструмента.</p>';
         return;
       }
@@ -2025,7 +3190,6 @@
     fbForm.onsubmit = function(e) {
       e.preventDefault();
 
-      // Валидация всех полей
       const fio = document.getElementById('fio');
       const fioGroup = fio.closest('.feedback-form-group');
       const isFioValid = validateRequired(fio, fioGroup);
@@ -2043,9 +3207,6 @@
         dislike: dislikeTextarea.value.trim(),
         suggestion: suggestionTextarea.value.trim()
       };
-
-      console.log('📤 Отправка отзыва:', formData);
-      console.log('🔑 ID полей:', { fio: FORM_ENTRY_FIO, like: FORM_ENTRY_LIKE, dislike: FORM_ENTRY_DISLIKE, suggestion: FORM_ENTRY_SUGGESTION });
 
       const form = document.createElement('form');
       form.method = 'POST';
@@ -2103,7 +3264,6 @@
               if (form.parentNode) document.body.removeChild(form);
             }, 3000);
           }).catch(err => {
-            console.warn('Ошибка при отправке через fetch:', err);
             fbRes.innerHTML = '<p style="color:orange;">⚠️ Отзыв не удалось отправить. Попробуйте позже или свяжитесь с поддержкой.</p>';
           });
         }
